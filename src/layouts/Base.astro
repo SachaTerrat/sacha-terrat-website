@@ -75,7 +75,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.sach
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <!-- CSS global -->
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    // Layout de base partagé par toutes les pages
+import '../styles/global.css'; // <--- AJOUTE CETTE LIGNE ICI
+
+export interface Props {
+  title?: string;
   </head>
 
   <body>
