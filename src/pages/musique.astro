@@ -1,0 +1,253 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Discographie : seulement les sorties cochées
+const releases = [
+  { title: "Arena", year: "2025", type: "Single", cover: "cover-arena.jpg",
+    bandcamp: "https://sachaterrat.bandcamp.com/track/arena",
+    spotify: "https://open.spotify.com/artist/2ViY8blynCppvH7NQgmTDk" },
+  { title: "Oumuamua", year: "2024", type: "Single", cover: "cover-oumuamua.jpg",
+    bandcamp: "https://sachaterrat.bandcamp.com",
+    spotify: "https://open.spotify.com/artist/2ViY8blynCppvH7NQgmTDk" },
+  { title: "Remora", year: "2024", type: "EP", cover: "cover-remora.jpg",
+    bandcamp: "https://sachaterrat.bandcamp.com",
+    spotify: "https://open.spotify.com/artist/2ViY8blynCppvH7NQgmTDk" },
+  { title: "Kepler", year: "2023", type: "Single", cover: "cover-kepler.jpg",
+    bandcamp: "https://sachaterrat.bandcamp.com",
+    spotify: "https://open.spotify.com/artist/2ViY8blynCppvH7NQgmTDk" },
+  { title: "Gilded Cages", year: "2023", type: "EP", cover: "cover-gilded-cages.jpg",
+    bandcamp: "https://sachaterrat.bandcamp.com",
+    spotify: "https://open.spotify.com/artist/2ViY8blynCppvH7NQgmTDk" },
+  { title: "Silver Chains", year: "2022", type: "Single", cover: "cover-silver-chains.jpg",
+    bandcamp: "https://sachaterrat.bandcamp.com",
+    spotify: "https://open.spotify.com/artist/2ViY8blynCppvH7NQgmTDk" },
+];
+---
+
+<Base
+  title="Musique — Sacha TERRAT"
+  description="Discographie complète de Sacha TERRAT : Arena, Oumuamua, Remora, Kepler, Gilded Cages, Silver Chains. Trip-hop océanien à écouter sur Spotify, Bandcamp, Apple Music, Deezer."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Discographie</span>
+      <h1 class="reveal">Musique</h1>
+      <p class="lead reveal">
+        Productions aérées tissées de samples de la nature calédonienne, de boucles de percussions kanak,
+        de chants polyphoniques océaniens. Une voix qui explore de nouveaux territoires.
+      </p>
+    </div>
+  </section>
+
+  <!-- PLATEFORMES -->
+  <section class="section platforms-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Écouter sur</span>
+        <h2>Toutes les plateformes</h2>
+      </div>
+      <div class="platforms-grid">
+        <a href="https://open.spotify.com/artist/2ViY8blynCppvH7NQgmTDk" target="_blank" rel="noopener" class="platform-card reveal">
+          <span class="platform-name">Spotify</span>
+          <span class="platform-action">Streaming →</span>
+        </a>
+        <a href="https://sachaterrat.bandcamp.com" target="_blank" rel="noopener" class="platform-card reveal">
+          <span class="platform-name">Bandcamp</span>
+          <span class="platform-action">Acheter / Soutenir →</span>
+        </a>
+        <a href="https://soundcloud.com/sachamakesmusic" target="_blank" rel="noopener" class="platform-card reveal">
+          <span class="platform-name">SoundCloud</span>
+          <span class="platform-action">Streaming →</span>
+        </a>
+        <a href="https://www.youtube.com/@sacha.terrat.official" target="_blank" rel="noopener" class="platform-card reveal">
+          <span class="platform-name">YouTube</span>
+          <span class="platform-action">Clips & live →</span>
+        </a>
+        <a href="https://music.apple.com/fr/artist/sacha-terrat/1491471498" target="_blank" rel="noopener" class="platform-card reveal">
+          <span class="platform-name">Apple Music</span>
+          <span class="platform-action">Streaming →</span>
+        </a>
+        <a href="https://www.deezer.com/fr/artist/81032192" target="_blank" rel="noopener" class="platform-card reveal">
+          <span class="platform-name">Deezer</span>
+          <span class="platform-action">Streaming →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOGRAPHIE avec pochettes -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Catalogue</span>
+        <h2>Toutes les sorties</h2>
+      </div>
+      <div class="discography-grid">
+        {releases.map((release) => (
+          <article class="disc-card reveal">
+            <div class="disc-cover">
+              <img
+                src={`/images/covers/${release.cover}`}
+                alt={`Pochette de ${release.title}`}
+                loading="lazy"
+              />
+            </div>
+            <div class="disc-info">
+              <h3>{release.title}</h3>
+              <p class="disc-meta">{release.type} · {release.year}</p>
+              <div class="disc-links">
+                <a href={release.bandcamp} target="_blank" rel="noopener" class="disc-link">Bandcamp</a>
+                <span class="disc-sep">·</span>
+                <a href={release.spotify} target="_blank" rel="noopener" class="disc-link">Spotify</a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LECTEUR EMBED — ARENA -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">À l'écoute</span>
+        <h2>Dernier single — Arena</h2>
+      </div>
+      <div class="player-frame reveal">
+        <iframe
+          style="border: 0; width: 100%; height: 442px;"
+          src="https://bandcamp.com/EmbeddedPlayer/track=894982468/size=large/bgcol=0a0a14/linkcol=5be9ff/tracklist=false/transparent=true/"
+          seamless
+          title="Arena — Sacha TERRAT (Bandcamp)">
+          <a href="https://sachaterrat.bandcamp.com/track/arena">Arena by Sacha TERRAT</a>
+        </iframe>
+      </div>
+      <p class="player-cta reveal">
+        <a href="https://sachaterrat.bandcamp.com" target="_blank" rel="noopener">
+          Tout le catalogue sur Bandcamp →
+        </a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding: 180px 0 var(--space-md);
+  }
+
+  /* PLATEFORMES */
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .platform-card {
+    padding: 1.5rem;
+    background: var(--color-abyss);
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    color: var(--color-pearl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    aspect-ratio: 1.2;
+    transition: all 0.4s ease;
+  }
+
+  .platform-card:hover {
+    border-color: var(--color-cyan);
+    background: var(--color-violet);
+    transform: translateY(-2px);
+  }
+
+  .platform-name {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    color: var(--color-pearl);
+  }
+
+  .platform-action {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+  }
+
+  /* DISCOGRAPHY */
+  .discography-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .disc-card {
+    transition: all 0.4s ease;
+  }
+
+  .disc-cover {
+    aspect-ratio: 1;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-violet), var(--color-coral));
+  }
+
+  .disc-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .disc-card:hover .disc-cover img {
+    transform: scale(1.05);
+  }
+
+  .disc-info h3 {
+    margin-bottom: 0.3rem;
+  }
+
+  .disc-meta {
+    font-size: 0.85rem;
+    color: var(--color-veil);
+    margin-bottom: 0.5rem;
+  }
+
+  .disc-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .disc-link {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .disc-sep {
+    color: var(--color-veil);
+    font-size: 0.7rem;
+  }
+
+  /* PLAYER */
+  .player-frame {
+    background: var(--color-night);
+    border: 1px solid rgba(91, 233, 255, 0.15);
+    overflow: hidden;
+  }
+
+  .player-cta {
+    text-align: center;
+    margin-top: var(--space-md);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+</style>

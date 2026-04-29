@@ -1,17 +1,432 @@
 ---
-
+import Base from '../layouts/Base.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base
+  title="Sacha TERRAT — Oceanic Trip-Hop"
+  description="Artiste pluridisciplinaire queer, Sacha TERRAT tisse un trip-hop océanien luxuriant entre Nouvelle-Calédonie et Paris. Sélection KeyChange TLP 2025."
+>
+  <!-- HERO avec photo de fond -->
+  <section class="hero">
+    <!-- 📸 PHOTO HERO : place ici sacha-hero.jpg dans /public/images/ -->
+    <div class="hero-bg" aria-hidden="true">
+      <img src="/images/sacha-hero.jpg" alt="" class="hero-image" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="container hero-content">
+      <span class="eyebrow reveal">Oceanic Trip-Hop · Nouvelle-Calédonie ↔ Paris</span>
+      <h1 class="hero-title reveal">SACHA<br/>TERRAT</h1>
+      <p class="lead reveal">
+        Une orfèvrerie digitale tressée d'influences pop, downtempo, reggae et rythmiques kaneka.
+        Échappées belles aux confins du monde.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="/musique" class="btn btn-primary">Écouter</a>
+        <a href="/booking" class="btn">Booking & EPK</a>
+      </div>
+      <div class="hero-meta reveal">
+        <span>★ Sélection KeyChange TLP 2025</span>
+        <span>★ Festival Electrochic 2024</span>
+        <span>★ France TV · Outre-mer la 1ère</span>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Faire défiler</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- INTRO avec portrait -->
+  <section class="section intro">
+    <div class="container intro-grid">
+      <div class="reveal">
+        <span class="eyebrow">Le projet</span>
+        <h2>EXOMORPH</h2>
+        <p class="lead">
+          S'incarner totalement.
+        </p>
+        <p>
+          Comme un tapa, cette étoffe millénaire du Pacifique, la musique de Sacha jaillit d'une source organique
+          pour se colorer de textures électros et de beats expérimentaux. La voix se déploie telle une caresse
+          dans un mouvement pendulaire entre traditions insulaires et modernité.
+        </p>
+        <p>
+          Un univers aux parfums cosmiques, qui invite à un voyage sensoriel fait d'introspection,
+          de partage et de résonances océaniques.
+        </p>
+        <a href="/bio" class="btn">Lire la bio complète</a>
+      </div>
+      <!-- 📸 PHOTO PORTRAIT : place ici sacha-portrait.jpg dans /public/images/ -->
+      <figure class="intro-visual reveal">
+        <div class="visual-frame">
+          <img src="/images/sacha-portrait.jpg" alt="Sacha TERRAT, portrait artistique" />
+          <div class="visual-glow" aria-hidden="true"></div>
+        </div>
+        <figcaption>Photo : Renata Sanz Fuganti</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- DERNIÈRES SORTIES avec pochettes -->
+  <section class="section releases">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Discographie</span>
+        <h2>Dernières sorties</h2>
+      </div>
+      <div class="releases-grid">
+        <article class="release-card reveal">
+          <!-- 📸 POCHETTE : place ici cover-arena.jpg dans /public/images/covers/ -->
+          <div class="release-cover">
+            <img src="/images/covers/cover-arena.jpg" alt="Pochette du single Arena" loading="lazy" />
+          </div>
+          <h3>ARENA</h3>
+          <p class="release-meta">Single · 2025</p>
+          <a href="/musique" class="release-link">Écouter →</a>
+        </article>
+        <article class="release-card reveal">
+          <!-- 📸 POCHETTE : place ici cover-oumuamua.jpg dans /public/images/covers/ -->
+          <div class="release-cover">
+            <img src="/images/covers/cover-oumuamua.jpg" alt="Pochette du single Oumuamua" loading="lazy" />
+          </div>
+          <h3>OUMUAMUA</h3>
+          <p class="release-meta">Single · 2024</p>
+          <a href="/musique" class="release-link">Écouter →</a>
+        </article>
+        <article class="release-card reveal">
+          <!-- 📸 POCHETTE : place ici cover-remora.jpg dans /public/images/covers/ -->
+          <div class="release-cover">
+            <img src="/images/covers/cover-remora.jpg" alt="Pochette de l'EP Remora" loading="lazy" />
+          </div>
+          <h3>REMORA</h3>
+          <p class="release-meta">EP · 2024</p>
+          <a href="/musique" class="release-link">Écouter →</a>
+        </article>
+        <article class="release-card reveal">
+          <!-- 📸 POCHETTE : place ici cover-gilded-cages.jpg dans /public/images/covers/ -->
+          <div class="release-cover">
+            <img src="/images/covers/cover-gilded-cages.jpg" alt="Pochette de l'EP Gilded Cages" loading="lazy" />
+          </div>
+          <h3>GILDED CAGES</h3>
+          <p class="release-meta">EP · 2023</p>
+          <a href="/musique" class="release-link">Écouter →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESSE -->
+  <section class="section press">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Ils en parlent</span>
+        <h2>Presse</h2>
+      </div>
+      <div class="quotes-grid">
+        <blockquote class="quote reveal">
+          <p>"Un morceau électro-pop redoutablement atmosphérique, totalement dans une catégorie à part. DM Stith, Son Lux et My Brightest Diamond viennent tour à tour en tête."</p>
+          <cite>— Boulimique de Musique</cite>
+        </blockquote>
+        <blockquote class="quote reveal">
+          <p>"La mélodie du refrain transcende le titre à la manière d'un titre de Massive Attack."</p>
+          <cite>— Aurasky Music</cite>
+        </blockquote>
+        <blockquote class="quote reveal">
+          <p>"The music is incredibly original. The visual won us over and revealed a very incredible maturity and artistic quality."</p>
+          <cite>— Eolor</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOOKING -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <span class="eyebrow">Pour les programmateur·ices</span>
+        <h2>Inviter Sacha sur scène</h2>
+        <p class="lead">
+          Live duo (45-60 min) ou version immersive 360°. Fiche tech allégée, tournée 2026 en cours de construction.
+        </p>
+        <div class="cta-actions">
+          <a href="/booking" class="btn btn-primary">Voir le press kit</a>
+          <a href="mailto:sacha.terrat@gmail.com" class="btn">Contact direct</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 120px var(--space-md) var(--space-lg);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Si l'image manque, le fond reste sombre */
+    background: linear-gradient(135deg, var(--color-deep), var(--color-night));
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10, 10, 20, 0.4) 0%, rgba(10, 10, 20, 0.85) 100%),
+      radial-gradient(ellipse at top right, rgba(91, 233, 255, 0.15), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(255, 61, 138, 0.2), transparent 60%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    margin: 1.5rem 0 2.5rem;
+    background: linear-gradient(135deg, var(--color-pearl) 0%, var(--color-cyan) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin: var(--space-md) 0;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--color-veil);
+    text-transform: uppercase;
+    margin-top: var(--space-md);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-veil);
+    z-index: 1;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--color-cyan), transparent);
+    margin: 0.8rem auto 0;
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 0.3; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(10px); }
+  }
+
+  /* INTRO PORTRAIT */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .intro-visual {
+    margin: 0;
+  }
+
+  .visual-frame {
+    aspect-ratio: 3/4;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-violet), var(--color-coral));
+  }
+
+  .visual-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .visual-frame:hover img {
+    transform: scale(1.03);
+  }
+
+  .visual-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(91, 233, 255, 0.2), transparent 70%);
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .intro-visual figcaption {
+    margin-top: 0.8rem;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-veil);
+    text-align: right;
+  }
+
+  /* RELEASES */
+  .section-head {
+    margin-bottom: var(--space-lg);
+  }
+
+  .releases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .release-card {
+    background: var(--color-abyss);
+    padding: 1.5rem;
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    transition: all 0.4s ease;
+  }
+
+  .release-card:hover {
+    border-color: var(--color-coral);
+    transform: translateY(-4px);
+  }
+
+  .release-cover {
+    aspect-ratio: 1;
+    margin-bottom: 1rem;
+    border-radius: 2px;
+    overflow: hidden;
+    /* Dégradé fallback si l'image manque */
+    background: linear-gradient(135deg, var(--color-violet), var(--color-coral));
+  }
+
+  .release-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .release-card:hover .release-cover img {
+    transform: scale(1.05);
+  }
+
+  .release-card h3 {
+    margin-bottom: 0.3rem;
+    color: var(--color-pearl);
+  }
+
+  .release-meta {
+    font-size: 0.8rem;
+    color: var(--color-veil);
+    margin-bottom: 1rem;
+  }
+
+  .release-link {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* QUOTES */
+  .quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .quote {
+    border-left: 2px solid var(--color-coral);
+    padding: 1rem 0 1rem 1.5rem;
+  }
+
+  .quote p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--color-pearl);
+    margin-bottom: 1rem;
+  }
+
+  .quote cite {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    font-style: normal;
+  }
+
+  /* CTA */
+  .cta-box {
+    background: linear-gradient(135deg, var(--color-deep), var(--color-violet));
+    padding: var(--space-lg);
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid rgba(91, 233, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 61, 138, 0.15), transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-meta {
+      gap: 1rem;
+      font-size: 0.65rem;
+    }
+  }
+</style>

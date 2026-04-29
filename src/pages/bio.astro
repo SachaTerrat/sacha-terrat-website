@@ -1,0 +1,350 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Bio — Sacha TERRAT"
+  description="Biographie de Sacha TERRAT, artiste pluridisciplinaire queer, trip-hop océanien, Nouvelle-Calédonie / Paris. KeyChange TLP 2025."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">À propos</span>
+      <h1 class="reveal">Bio</h1>
+    </div>
+  </section>
+
+  <!-- TOGGLE LANGUE -->
+  <div class="container lang-toggle reveal">
+    <button class="lang-btn active" data-lang="fr">Français</button>
+    <button class="lang-btn" data-lang="en">English</button>
+  </div>
+
+  <!-- BIO FR -->
+  <section class="section bio-content" id="bio-fr">
+    <div class="container bio-layout">
+      <div class="bio-text">
+        <p class="lead reveal">
+          Les délicates escapades du trip-hop des antipodes.
+        </p>
+
+        <p class="reveal">
+          Artiste pluridisciplinaire queer, né·e en <strong>Nouvelle-Calédonie</strong> et voyageur·se épris·e
+          de liberté, <strong>Sacha TERRAT</strong> relie les hémisphères entre son « Caillou » natal et Paris,
+          abolissant les frontières grâce à son trip-hop océanien luxuriant et envoûtant.
+        </p>
+
+        <p class="reveal">
+          Dans son orfèvrerie digitale, iel tresse influences pop et downtempo, effluves reggae et rythmiques
+          kaneka, mettant en dialogue des identités mêlées lors d'échappées belles aux confins du monde.
+        </p>
+
+        <p class="reveal">
+          Chanteur·se, compositeur·rice et artiste-passeur·se entre arts et sciences, Sacha explore le langage
+          sous toutes ses formes, animé·e par une appétence sincère pour les mélodies raffinées et l'expression
+          corporelle. Résolu·e à préserver l'esprit des îles, iel agence correspondances et contrastes entre
+          la nature calédonienne, la biodiversité australe et le foisonnement urbain des grandes métropoles,
+          en quête d'altérité et d'universalité.
+        </p>
+
+        <p class="reveal">
+          Sélectionné·e en <strong>2025 pour le KeyChange TLP</strong>, iel affirme son engagement à repousser
+          les limites artistiques et à défendre une plus grande inclusion dans le milieu musical.
+        </p>
+
+        <p class="reveal">
+          Comme un tapa, cette étoffe millénaire du Pacifique, la musique de Sacha jaillit d'une source
+          organique pour se colorer de textures électros et de beats expérimentaux, où sa voix se déploie
+          telle une caresse. De ce mouvement pendulaire entre traditions insulaires et modernité naît un
+          univers aux parfums cosmiques, invitant chacun·e à un voyage sensoriel fait d'introspection,
+          de partage et de résonances océaniques.
+        </p>
+
+        <h2 class="reveal">Exomorph : s'incarner totalement</h2>
+
+        <p class="reveal">
+          Sacha TERRAT imagine un espace où les cultures, les identités et les idées se rencontrent et
+          collaborent. C'est une proposition inédite, fruit de la volonté de puiser dans les paradoxes
+          qui nous construisent, les mélanges qui nous définissent et les langues qui nous aident à
+          appréhender le monde et à communiquer avec lui.
+        </p>
+
+        <p class="reveal">
+          Il s'agit de trouver un terrain commun, neutre, afin de mieux nous comprendre en tant qu'individus
+          et célébrer nos singularités. C'est aussi un moment où l'on honore la diversité des identités queer
+          et la richesse des cultures océaniennes.
+        </p>
+
+        <p class="reveal">
+          Depuis 2021, Sacha TERRAT opère un changement significatif tant dans la construction de son univers
+          sonore que dans l'interprétation et la thématique de ses textes. Ses productions se font plus légères,
+          plus aérées, et s'enrichissent désormais de samples exotiques issus de la nature calédonienne, ainsi
+          que de boucles entêtantes de percussions kanak.
+        </p>
+
+        <p class="reveal">
+          Cet univers se décline aussi sur scène, où, accompagné·e d'un batteur, Sacha TERRAT convie le public
+          à un voyage où lumière, vidéo et chorégraphie viennent peindre le monde rêvé par l'artiste. Iel développe
+          également une version immersive de son spectacle avec l'ingénieur du son Lambert Sylvain, présentée
+          lors du festival Electrochic en mars 2024.
+        </p>
+      </div>
+
+      <aside class="bio-sidebar">
+        <!-- 📸 PORTRAIT BIO : place ici sacha-portrait.jpg dans /public/images/ -->
+        <figure class="bio-portrait reveal">
+          <img src="/images/sacha-portrait.jpg" alt="Sacha TERRAT, portrait" loading="lazy" />
+          <figcaption>Photo : Renata Sanz Fuganti</figcaption>
+        </figure>
+
+        <div class="info-block reveal">
+          <h4>Origine</h4>
+          <p>Nouvelle-Calédonie</p>
+        </div>
+        <div class="info-block reveal">
+          <h4>Basé·e à</h4>
+          <p>Paris, France</p>
+        </div>
+        <div class="info-block reveal">
+          <h4>Genre</h4>
+          <p>Oceanic Trip-Hop · Downtempo · Electronic</p>
+        </div>
+        <div class="info-block reveal">
+          <h4>Identité</h4>
+          <p>Artiste pluridisciplinaire queer</p>
+        </div>
+        <div class="info-block reveal">
+          <h4>Langues</h4>
+          <p>Français, anglais</p>
+        </div>
+        <div class="info-block reveal">
+          <h4>Reconnaissance</h4>
+          <p>KeyChange TLP 2025</p>
+          <p>France TV "Ils font bouger la Calédonie"</p>
+          <p>Outre-mer la 1ère</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- BIO EN -->
+  <section class="section bio-content" id="bio-en" style="display: none;">
+    <div class="container bio-layout">
+      <div class="bio-text">
+        <p class="lead">
+          Antipodean trip-hop, delicate escapes.
+        </p>
+
+        <p>
+          A queer multidisciplinary artist born in <strong>New Caledonia</strong> and freedom-loving traveler,
+          <strong>Sacha TERRAT</strong> bridges hemispheres between their native "Caillou" and Paris, dissolving
+          borders through their lush and bewitching oceanic trip-hop.
+        </p>
+
+        <p>
+          In their digital craftsmanship, they weave together pop and downtempo influences, reggae notes and
+          kaneka rhythms, putting blended identities in dialogue during beautiful escapes to the ends of the world.
+        </p>
+
+        <p>
+          Singer, composer and artist-bridge between arts and sciences, Sacha explores language in all its forms,
+          driven by a sincere appetite for refined melodies and bodily expression. Determined to preserve the
+          spirit of the islands, they orchestrate correspondences and contrasts between Caledonian nature,
+          southern biodiversity and the urban abundance of large metropolises, in search of otherness and
+          universality.
+        </p>
+
+        <p>
+          Selected in <strong>2025 for the KeyChange TLP</strong>, they affirm their commitment to pushing
+          artistic boundaries and defending greater inclusion in the music industry.
+        </p>
+
+        <p>
+          Like a tapa, the millennial fabric of the Pacific, Sacha's music springs from an organic source
+          and colors itself with electronic textures and experimental beats, where the voice unfolds like
+          a caress. From this pendular movement between island traditions and modernity, a universe with
+          cosmic perfumes is born, inviting everyone on a sensory journey of introspection, sharing and
+          oceanic resonances.
+        </p>
+
+        <h2>Exomorph: full embodiment</h2>
+
+        <p>
+          Sacha TERRAT imagines a space where cultures, identities and ideas meet and collaborate. It is
+          an unprecedented proposal, fruit of the desire to draw from the paradoxes that build us, the
+          mixtures that define us and the languages that help us apprehend the world and communicate with it.
+        </p>
+
+        <p>
+          Since 2021, Sacha TERRAT has been making significant changes both in the construction of their
+          sonic universe and in the interpretation and themes of their lyrics. Productions have become lighter,
+          more airy, and now enriched with exotic samples from Caledonian nature, as well as captivating
+          loops of Kanak percussion.
+        </p>
+      </div>
+
+      <aside class="bio-sidebar">
+        <figure class="bio-portrait">
+          <img src="/images/sacha-portrait.jpg" alt="Sacha TERRAT, portrait" loading="lazy" />
+          <figcaption>Photo: Renata Sanz Fuganti</figcaption>
+        </figure>
+
+        <div class="info-block">
+          <h4>Origin</h4>
+          <p>New Caledonia</p>
+        </div>
+        <div class="info-block">
+          <h4>Based in</h4>
+          <p>Paris, France</p>
+        </div>
+        <div class="info-block">
+          <h4>Genre</h4>
+          <p>Oceanic Trip-Hop · Downtempo · Electronic</p>
+        </div>
+        <div class="info-block">
+          <h4>Identity</h4>
+          <p>Queer multidisciplinary artist</p>
+        </div>
+        <div class="info-block">
+          <h4>Languages</h4>
+          <p>French, English</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<script>
+  document.querySelectorAll('.lang-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+      document.querySelectorAll('.lang-btn').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('bio-fr').style.display = lang === 'fr' ? 'block' : 'none';
+      document.getElementById('bio-en').style.display = lang === 'en' ? 'block' : 'none';
+    });
+  });
+</script>
+
+<style>
+  .page-hero {
+    padding: 180px 0 var(--space-sm);
+  }
+
+  .lang-toggle {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 var(--space-md) var(--space-md);
+  }
+
+  .lang-btn {
+    background: transparent;
+    border: 1px solid rgba(245, 240, 255, 0.1);
+    color: var(--color-mist);
+    padding: 0.5rem 1.2rem;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .lang-btn:hover {
+    color: var(--color-pearl);
+    border-color: var(--color-cyan);
+  }
+
+  .lang-btn.active {
+    background: var(--color-coral);
+    border-color: var(--color-coral);
+    color: var(--color-night);
+  }
+
+  .bio-content {
+    padding-top: 0;
+  }
+
+  .bio-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .bio-text p {
+    margin-bottom: 1.5rem;
+  }
+
+  .bio-text strong {
+    color: var(--color-cyan);
+    font-weight: 500;
+  }
+
+  .bio-text h2 {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .bio-sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .bio-portrait {
+    margin: 0 0 var(--space-md);
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-violet), var(--color-coral));
+  }
+
+  .bio-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bio-portrait figcaption {
+    margin-top: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-veil);
+    text-align: right;
+  }
+
+  .info-block {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--color-abyss);
+    border-left: 2px solid var(--color-cyan);
+  }
+
+  .info-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-block h4 {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-block p {
+    font-size: 0.95rem;
+    color: var(--color-pearl);
+    margin-bottom: 0.3rem;
+  }
+
+  @media (max-width: 768px) {
+    .bio-layout {
+      grid-template-columns: 1fr;
+    }
+    .bio-sidebar {
+      position: static;
+    }
+  }
+</style>

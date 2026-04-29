@@ -1,0 +1,239 @@
+/* ===========================================
+   SACHA TERRAT — Oceanic Trip-Hop
+   Design system : nuit océanique, cosmique
+   =========================================== */
+
+:root {
+  /* Couleurs — palette Exomorph */
+  --color-night: #0a0a14;
+  --color-deep: #12102a;
+  --color-abyss: #1a1530;
+  --color-violet: #2d1b4e;
+
+  --color-coral: #ff3d8a;       /* fuchsia EPK */
+  --color-cyan: #5be9ff;        /* cyan halo Exomorph */
+  --color-amber: #ffb347;       /* terre cuite caillou */
+  --color-pearl: #f5f0ff;       /* texte principal */
+  --color-mist: #a0a4d4;        /* texte secondaire */
+  --color-veil: #6b6e95;        /* texte tertiaire */
+
+  /* Typo */
+  --font-display: 'Major Mono Display', 'Courier New', monospace;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+
+  /* Espacements */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+}
+
+/* Reset minimal */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--color-night);
+  color: var(--color-pearl);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Background organique animé */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 61, 138, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(91, 233, 255, 0.10) 0%, transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(45, 27, 78, 0.5) 0%, transparent 50%);
+  z-index: -1;
+  animation: drift 30s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-30px, -20px) scale(1.05); }
+}
+
+/* Typographie */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  letter-spacing: 0.15em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: var(--space-md);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  letter-spacing: 0.1em;
+}
+
+p {
+  margin-bottom: var(--space-sm);
+  color: var(--color-mist);
+  max-width: 65ch;
+}
+
+a {
+  color: var(--color-cyan);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-coral);
+}
+
+/* Conteneurs */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+  position: relative;
+}
+
+/* Boutons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-pearl);
+  background: transparent;
+  color: var(--color-pearl);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-coral);
+  transform: translateY(101%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.btn:hover {
+  color: var(--color-night);
+  border-color: var(--color-coral);
+}
+
+.btn:hover::before {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--color-coral);
+  border-color: var(--color-coral);
+  color: var(--color-night);
+}
+
+.btn-primary::before {
+  background: var(--color-cyan);
+}
+
+.btn-primary:hover {
+  border-color: var(--color-cyan);
+}
+
+/* Utilitaires */
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-pearl);
+  max-width: 50ch;
+}
+
+/* Reveal au scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 4rem;
+    --space-lg: 2.5rem;
+  }
+  .container {
+    padding: 0 var(--space-sm);
+  }
+}
+
+/* Scrollbar customisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-night);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-violet);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-coral);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-coral);
+  color: var(--color-night);
+}

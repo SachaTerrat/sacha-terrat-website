@@ -1,0 +1,663 @@
+---
+import Base from '../layouts/Base.astro';
+
+const residences = [
+  {
+    year: "2025",
+    name: "KeyChange Talent Development Programme",
+    lieu: "Europe",
+    description: "Programme de développement artistique paneuropéen visant l'égalité de genre dans l'industrie musicale. Sacha est sélectionné·e parmi les artistes accompagné·es en 2025.",
+    tag: "Programme",
+  },
+  {
+    year: "2024",
+    name: "MJC de Chaville",
+    lieu: "Chaville, France",
+    description: "Résidence de création pour le spectacle Exomorph immersif, avec sortie de résidence publique. Développement du dispositif de spatialisation sonore 360° en collaboration avec Lambert Sylvain.",
+    tag: "Résidence",
+  },
+  {
+    year: "2021",
+    name: "Cabaret Aléatoire",
+    lieu: "Marseille, France",
+    description: "Résidence fondatrice pour le développement du projet immersif Exomorph. Premiers essais de spatialisation sonore multipoints dans une acoustique de grande salle.",
+    tag: "Résidence",
+  },
+];
+---
+
+<Base
+  title="Art & Sciences — Sacha TERRAT"
+  description="Sacha TERRAT : lutherie numérique, Max/MSP, interfaces MIDI custom, spatialisation sonore immersive, captation de terrain en Nouvelle-Calédonie. Un artiste à la croisée des arts et des sciences."
+>
+  <!-- HERO -->
+  <section class="lab-hero">
+    <div class="lab-hero-bg" aria-hidden="true">
+      <div class="particle" style="--x: 20%; --y: 30%; --size: 300px; --color: rgba(91,233,255,0.06);"></div>
+      <div class="particle" style="--x: 70%; --y: 60%; --size: 400px; --color: rgba(255,61,138,0.05);"></div>
+      <div class="particle" style="--x: 50%; --y: 80%; --size: 200px; --color: rgba(91,233,255,0.04);"></div>
+    </div>
+    <div class="container lab-hero-content">
+      <span class="eyebrow reveal">Recherche & création</span>
+      <h1 class="reveal">Art & Sciences</h1>
+      <p class="lead reveal">
+        Entre lutherie numérique, spatialisation sonore et captation de terrain,
+        Sacha explore le langage sous toutes ses formes — à la croisée de la poésie
+        et de l'ingénierie.
+      </p>
+      <blockquote class="lab-quote reveal">
+        <p>"Chanteur·se, compositeur·rice et artiste-passeur·se entre arts et sciences,
+        animé·e par une appétence sincère pour les mélodies raffinées et l'expression corporelle."</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ═══ LUTHERIE NUMÉRIQUE ═══ -->
+  <section class="section" id="lutherie">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Lutherie numérique</span>
+        <h2>Max/MSP & Interfaces MIDI custom</h2>
+      </div>
+
+      <div class="lab-grid">
+        <div class="lab-text reveal">
+          <p>
+            Sacha programme ses propres instruments. Dans l'environnement Max/MSP, iel conçoit
+            des interfaces sur-mesure qui transforment des objets du quotidien en véritables
+            instruments de musique — des contrôleurs pensés pour le geste, pour la performance,
+            pour l'inattendu.
+          </p>
+          <p>
+            Joycons de Nintendo, manettes de jeu, interfaces Arduino : autant d'objets réinventés
+            en lutherie contemporaine, capables de déclencher sons, lumières et vidéo en temps
+            réel sur scène. Cette approche nourrit à la fois les performances live d'Exomorph
+            et les ateliers musicaux en milieu scolaire ou en soin.
+          </p>
+        </div>
+
+        <div class="lab-features reveal">
+          <!-- Feature phare -->
+          <article class="lab-feature lab-feature-hero">
+            <div class="feature-icon">🎮</div>
+            <h3>Instrument contrôlé par le mouvement</h3>
+            <p>
+              Développé à partir de joycons Nintendo, cet instrument transforme le geste
+              en son. Chaque inclinaison, chaque rotation du poignet génère une note,
+              une texture, un effet. Jouer de la musique devient un acte chorégraphique —
+              accessible à tous les corps, à tous les âges.
+            </p>
+            <p class="feature-usage">
+              Utilisé en ateliers jeune public + adulte · Performances live
+            </p>
+          </article>
+
+          <article class="lab-feature reveal">
+            <div class="feature-icon">⚡</div>
+            <h3>Synchronisation AV temps réel</h3>
+            <p>
+              Synchronisation vidéo, lumière et son en live via Max/MSP.
+              Le concert devient un organisme vivant où tout réagit à tout.
+            </p>
+          </article>
+
+          <article class="lab-feature reveal">
+            <div class="feature-icon">🔌</div>
+            <h3>Interfaces Arduino custom</h3>
+            <p>
+              Capteurs de pression, de mouvement, de proximité — des instruments
+              fabriqués de toutes pièces pour des usages artistiques et pédagogiques spécifiques.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SPATIALISATION SONORE ═══ -->
+  <section class="section spat-section" id="spatialisation">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Son immersif</span>
+        <h2>Spatialisation sonore</h2>
+      </div>
+
+      <div class="spat-grid">
+        <div class="spat-visual reveal" aria-hidden="true">
+          <div class="spat-rings">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+            <div class="ring ring-3"></div>
+            <div class="ring ring-4"></div>
+          </div>
+          <div class="spat-center">
+            <span class="spat-points">4-8</span>
+            <span class="spat-label">points</span>
+          </div>
+          <div class="speaker sp-1">◈</div>
+          <div class="speaker sp-2">◈</div>
+          <div class="speaker sp-3">◈</div>
+          <div class="speaker sp-4">◈</div>
+        </div>
+
+        <div class="reveal">
+          <p>
+            Sacha développe depuis 2021 un dispositif de spatialisation sonore multipoints
+            utilisant les objets SPAT dans Max/MSP. De 4 à 8 haut-parleurs positionnés dans
+            l'espace, chaque source sonore se déplace, tourne, s'approche et s'éloigne —
+            le son devient matière sculptable dans l'espace.
+          </p>
+          <p>
+            Ce dispositif alimente deux projets distincts : <strong>Exomorph immersif</strong>
+            (spectacle adulte, en collaboration avec l'ingénieur Lambert Sylvain) et la
+            <strong>Sieste Musicale Immersive</strong> des P'tites Explorations Sonores
+            (spectacle jeune public, dès 3 ans).
+          </p>
+
+          <div class="spat-spectacles">
+            <article class="spat-spectacle">
+              <span class="spat-tag">Adulte</span>
+              <h4>Exomorph Immersif</h4>
+              <p>Avec Lambert Sylvain · Résidences Cabaret Aléatoire 2021, MJC Chaville 2024</p>
+              <a href="/booking" class="spat-link">Demander ce spectacle →</a>
+            </article>
+            <article class="spat-spectacle">
+              <span class="spat-tag">Dès 3 ans</span>
+              <h4>Sieste Musicale Immersive</h4>
+              <p>Dans le cadre des P'tites Explorations Sonores</p>
+              <a href="/projets#explorations" class="spat-link">Découvrir le projet →</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NATURE CALÉDONIENNE ═══ -->
+  <section class="section nature-section" id="terrain">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Captation de terrain</span>
+        <h2>Les sons du Caillou</h2>
+      </div>
+      <div class="nature-grid">
+        <div class="reveal">
+          <p class="lead">
+            La Nouvelle-Calédonie comme studio à ciel ouvert.
+          </p>
+          <p>
+            Les paysages sonores de l'île natale traversent toute la musique de Sacha —
+            oiseaux, mer, forêts humides, percussions kanak, chants polyphoniques océaniens.
+            Ces sons captés sur le terrain ne sont pas de simples samples : ils sont le
+            tissu organique à partir duquel les compositions se construisent, la mémoire
+            sensorielle qui ancre l'électronique dans le vivant.
+          </p>
+          <p>
+            C'est de ce mouvement pendulaire entre terrain et studio, entre île et métropole,
+            entre tradition et expérimentation, que naît le trip-hop océanien de Sacha.
+            Une musique qui a les pieds dans la terre rouge du Caillou et la tête dans
+            les étoiles du Pacifique sud.
+          </p>
+        </div>
+        <div class="nature-visual reveal" aria-hidden="true">
+          <div class="nature-elements">
+            <span class="ne ne-1">🌿</span>
+            <span class="ne ne-2">🌊</span>
+            <span class="ne ne-3">🎵</span>
+            <span class="ne ne-4">🌺</span>
+            <span class="ne ne-5">⚡</span>
+            <span class="ne ne-6">🥁</span>
+          </div>
+          <div class="nature-text">Nouvelle-Calédonie<br/>→ Paris</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RÉSIDENCES ═══ -->
+  <section class="section" id="residences">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Parcours</span>
+        <h2>Résidences & Programmes</h2>
+      </div>
+      <div class="residences-list">
+        {residences.map(r => (
+          <article class="residence-card reveal">
+            <div class="residence-year">
+              <span>{r.year}</span>
+              <span class="residence-tag">{r.tag}</span>
+            </div>
+            <div class="residence-info">
+              <h3>{r.name}</h3>
+              <p class="residence-lieu">{r.lieu}</p>
+              <p class="residence-desc">{r.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="lab-cta reveal">
+        <div>
+          <span class="eyebrow">Collaborer</span>
+          <h2>Un projet de recherche, une résidence ?</h2>
+          <p>
+            Sacha est ouvert·e à des collaborations artistiques et scientifiques,
+            des résidences de création et des projets de recherche-action
+            à la croisée des arts sonores, des technologies et de la médiation culturelle.
+          </p>
+        </div>
+        <div class="lab-cta-actions">
+          <a href="mailto:sacha.terrat@gmail.com?subject=Collaboration Art & Sciences" class="btn btn-primary">
+            Prendre contact
+          </a>
+          <a href="/booking" class="btn">Voir le press kit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* HERO */
+  .lab-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 160px 0 var(--space-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lab-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .particle {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: var(--color);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: drift 20s ease-in-out infinite alternate;
+  }
+
+  .particle:nth-child(2) { animation-delay: -7s; }
+  .particle:nth-child(3) { animation-delay: -14s; }
+
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(-40px, -30px) scale(1.1); }
+  }
+
+  .lab-hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .lab-quote {
+    margin-top: var(--space-md);
+    padding: 1.5rem 2rem;
+    border-left: 2px solid var(--color-coral);
+    max-width: 60ch;
+  }
+
+  .lab-quote p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-pearl);
+    margin: 0;
+  }
+
+  /* LUTHERIE */
+  .lab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .lab-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .lab-feature {
+    background: var(--color-abyss);
+    padding: 1.5rem;
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    transition: border-color 0.4s ease;
+  }
+
+  .lab-feature:hover {
+    border-color: var(--color-cyan);
+  }
+
+  .lab-feature-hero {
+    border-color: rgba(91, 233, 255, 0.3);
+    background: linear-gradient(135deg, var(--color-abyss), var(--color-violet));
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .lab-feature h3 {
+    margin-bottom: 0.8rem;
+    color: var(--color-pearl);
+    font-size: 1.1rem;
+  }
+
+  .feature-usage {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  /* SPATIALISATION */
+  .spat-section {
+    background: var(--color-deep);
+  }
+
+  .spat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .spat-visual {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .spat-rings {
+    position: absolute;
+    inset: 0;
+  }
+
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .ring-1 { width: 90%; height: 90%; border-color: rgba(91,233,255,0.15); animation: rotate 25s linear infinite; }
+  .ring-2 { width: 65%; height: 65%; border-color: rgba(255,61,138,0.2); animation: rotate 18s linear infinite reverse; }
+  .ring-3 { width: 40%; height: 40%; border-color: rgba(91,233,255,0.3); animation: rotate 12s linear infinite; }
+  .ring-4 { width: 18%; height: 18%; border-color: rgba(255,61,138,0.4); }
+
+  @keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .spat-center {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .spat-points {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--color-pearl);
+    letter-spacing: 0.1em;
+  }
+
+  .spat-label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+  }
+
+  .speaker {
+    position: absolute;
+    color: var(--color-coral);
+    font-size: 1.2rem;
+    z-index: 1;
+  }
+
+  .sp-1 { top: 5%; left: 50%; transform: translateX(-50%); }
+  .sp-2 { bottom: 5%; left: 50%; transform: translateX(-50%); }
+  .sp-3 { left: 5%; top: 50%; transform: translateY(-50%); }
+  .sp-4 { right: 5%; top: 50%; transform: translateY(-50%); }
+
+  .spat-spectacles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: var(--space-md);
+  }
+
+  .spat-spectacle {
+    background: var(--color-abyss);
+    padding: 1.2rem;
+    border-left: 2px solid var(--color-coral);
+  }
+
+  .spat-tag {
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .spat-spectacle h4 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: var(--color-pearl);
+    margin-bottom: 0.5rem;
+  }
+
+  .spat-spectacle p {
+    font-size: 0.85rem;
+    color: var(--color-veil);
+    margin-bottom: 0.8rem;
+  }
+
+  .spat-link {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+  }
+
+  /* NATURE */
+  .nature-section {
+    background: linear-gradient(180deg, var(--color-night), var(--color-deep));
+  }
+
+  .nature-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .nature-visual {
+    aspect-ratio: 1;
+    background: var(--color-abyss);
+    border: 1px solid rgba(91,233,255,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nature-elements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .ne {
+    font-size: 2rem;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .ne-1 { animation-delay: 0s; }
+  .ne-2 { animation-delay: 0.7s; }
+  .ne-3 { animation-delay: 1.4s; }
+  .ne-4 { animation-delay: 2.1s; }
+  .ne-5 { animation-delay: 2.8s; }
+  .ne-6 { animation-delay: 3.5s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .nature-text {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    text-align: center;
+    line-height: 2;
+  }
+
+  /* RÉSIDENCES */
+  .residences-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .residence-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--color-abyss);
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    border-left: 3px solid var(--color-cyan);
+    transition: all 0.4s ease;
+  }
+
+  .residence-card:hover {
+    border-left-color: var(--color-coral);
+    transform: translateX(4px);
+  }
+
+  .residence-year {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .residence-year span:first-child {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-pearl);
+    letter-spacing: 0.1em;
+  }
+
+  .residence-tag {
+    font-family: var(--font-display) !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan) !important;
+    border: 1px solid var(--color-cyan);
+    padding: 0.2rem 0.5rem;
+    width: fit-content;
+  }
+
+  .residence-info h3 {
+    margin-bottom: 0.3rem;
+    color: var(--color-pearl);
+  }
+
+  .residence-lieu {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    margin-bottom: 0.8rem;
+  }
+
+  .residence-desc {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .lab-cta {
+    background: linear-gradient(135deg, var(--color-deep), var(--color-violet));
+    border: 1px solid rgba(91, 233, 255, 0.2);
+    padding: var(--space-lg);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .lab-cta h2 {
+    margin-bottom: 1rem;
+  }
+
+  .lab-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .lab-grid,
+    .spat-grid,
+    .nature-grid,
+    .lab-cta {
+      grid-template-columns: 1fr;
+    }
+
+    .spat-spectacles {
+      grid-template-columns: 1fr;
+    }
+
+    .residence-card {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

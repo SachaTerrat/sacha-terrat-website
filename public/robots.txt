@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sachamakesmusic.com/sitemap-index.xml

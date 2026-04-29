@@ -1,0 +1,451 @@
+---
+// Layout de base partagé par toutes les pages
+// Gère : SEO, polices, header, footer
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "Sacha TERRAT — Oceanic Trip-Hop",
+  description = "Sacha TERRAT, artiste pluridisciplinaire queer, tisse un trip-hop océanien luxuriant entre la Nouvelle-Calédonie et Paris. Sélection KeyChange TLP 2025.",
+  image = "/images/og-image.jpg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.sachamakesmusic.com');
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO basique -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.url)} />
+
+    <!-- Schema.org JSON-LD : MusicGroup pour Google Knowledge Panel -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "Sacha TERRAT",
+      "alternateName": ["Sacha Terrat", "SACHA TERRAT"],
+      "description": "Artiste pluridisciplinaire queer, trip-hop océanien entre Nouvelle-Calédonie et Paris",
+      "genre": ["Trip-Hop", "Electronic", "Downtempo", "Oceanic"],
+      "url": "https://www.sachamakesmusic.com",
+      "image": "https://www.sachamakesmusic.com/images/sacha-portrait.jpg",
+      "sameAs": [
+        "https://open.spotify.com/artist/2ViY8blynCppvH7NQgmTDk",
+        "https://sachaterrat.bandcamp.com",
+        "https://soundcloud.com/sachamakesmusic",
+        "https://www.youtube.com/@sacha.terrat.official",
+        "https://music.apple.com/fr/artist/sacha-terrat/1491471498",
+        "https://www.deezer.com/fr/artist/81032192",
+        "https://www.instagram.com/sacha.terrat.official/",
+        "https://www.facebook.com/sacha.terrat.official/",
+        "https://www.tiktok.com/@sacha.terrat.official"
+      ]
+    })} />
+
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- CSS global -->
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="logo">SACHA<span>TERRAT</span></a>
+        <nav class="main-nav" aria-label="Navigation principale">
+          <a href="/">Accueil</a>
+          <a href="/musique">Musique</a>
+          <a href="/live">Live</a>
+          <a href="/projets">Projets</a>
+          <a href="/booking" class="nav-cta">Booking</a>
+          <a href="/bio">Bio</a>
+        </nav>
+        <button class="menu-toggle" aria-label="Menu" id="menuToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- CONTENU DE LA PAGE -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <p class="footer-name">SACHA TERRAT</p>
+          <p class="footer-tagline">Oceanic Trip-Hop · Nouvelle-Calédonie ↔ Paris</p>
+        </div>
+        <div class="footer-links">
+          <h4>Écouter</h4>
+          <a href="https://open.spotify.com/artist/2ViY8blynCppvH7NQgmTDk" target="_blank" rel="noopener">Spotify</a>
+          <a href="https://sachaterrat.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+          <a href="https://soundcloud.com/sachamakesmusic" target="_blank" rel="noopener">SoundCloud</a>
+          <a href="https://www.youtube.com/@sacha.terrat.official" target="_blank" rel="noopener">YouTube</a>
+          <a href="https://music.apple.com/fr/artist/sacha-terrat/1491471498" target="_blank" rel="noopener">Apple Music</a>
+          <a href="https://www.deezer.com/fr/artist/81032192" target="_blank" rel="noopener">Deezer</a>
+        </div>
+        <div class="footer-links">
+          <h4>Suivre</h4>
+          <a href="https://www.instagram.com/sacha.terrat.official/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/sacha.terrat.official/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.tiktok.com/@sacha.terrat.official" target="_blank" rel="noopener">TikTok</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="mailto:sacha.terrat@gmail.com">sacha.terrat@gmail.com</a>
+          <a href="tel:+33617277177">+33 6 17 27 71 77</a>
+          <a href="/booking">Press kit / Booking</a>
+          <a href="/laboratoire">Art &amp; Sciences</a>
+        </div>
+      </div>
+      <!-- LOGOS PARTENAIRES -->
+      <div class="container footer-partners">
+        <span class="partners-label">Soutiens & partenaires</span>
+        <div class="partners-grid">
+          <a href="https://www.keychange.eu/directory/underrepresented-talent-profile/sacha-terrat" target="_blank" rel="noopener" class="partner-logo" aria-label="KeyChange">
+            <img src="/images/logos/keychange.png" alt="KeyChange" onerror="this.parentElement.classList.add('has-error')" />
+            <span class="partner-fallback">KeyChange</span>
+          </a>
+          <div class="partner-logo">
+            <img src="/images/logos/mjc-chaville.png" alt="MJC de Chaville" onerror="this.parentElement.classList.add('has-error')" />
+            <span class="partner-fallback">MJC de Chaville</span>
+          </div>
+          <span class="partner-text">Soutenu par la DRAC Île-de-France</span>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>© {new Date().getFullYear()} Sacha TERRAT — Tous droits réservés</p>
+        <p class="footer-credits">Photos : Renata Sanz Fuganti · Vojta Janyska · Linda Kurtovitch</p>
+      </div>
+    </footer>
+
+    <script>
+      // Reveal au scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Menu mobile
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.querySelector('.main-nav');
+      toggle?.addEventListener('click', () => {
+        nav?.classList.toggle('open');
+        toggle.classList.toggle('active');
+      });
+    </script>
+
+    <style>
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(10, 10, 20, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(245, 240, 255, 0.05);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.2rem var(--space-md);
+      }
+
+      .logo {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        letter-spacing: 0.2em;
+        color: var(--color-pearl);
+        text-decoration: none;
+        line-height: 1;
+      }
+
+      .logo span {
+        display: block;
+        font-size: 0.7rem;
+        color: var(--color-cyan);
+        margin-top: 2px;
+        letter-spacing: 0.3em;
+      }
+
+      .main-nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .main-nav a {
+        font-family: var(--font-display);
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--color-mist);
+        position: relative;
+        padding-bottom: 4px;
+      }
+
+      .main-nav a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: var(--color-coral);
+        transition: width 0.3s ease;
+      }
+
+      .main-nav a:hover {
+        color: var(--color-pearl);
+      }
+
+      .main-nav a:hover::after {
+        width: 100%;
+      }
+
+      .main-nav .nav-cta {
+        color: var(--color-coral);
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+      }
+
+      .menu-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--color-pearl);
+        transition: all 0.3s ease;
+      }
+
+      /* Footer */
+      .site-footer {
+        background: var(--color-deep);
+        padding: var(--space-lg) 0 var(--space-md);
+        margin-top: var(--space-xl);
+        border-top: 1px solid rgba(245, 240, 255, 0.05);
+      }
+
+      .footer-inner {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: var(--space-md);
+        margin-bottom: var(--space-md);
+      }
+
+      .footer-name {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        letter-spacing: 0.2em;
+        color: var(--color-pearl);
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-tagline {
+        font-size: 0.85rem;
+        color: var(--color-veil);
+      }
+
+      .footer-links h4 {
+        font-family: var(--font-display);
+        font-size: 0.75rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--color-cyan);
+        margin-bottom: 1rem;
+      }
+
+      .footer-links a {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--color-mist);
+        margin-bottom: 0.4rem;
+      }
+
+      .footer-bottom {
+        padding-top: var(--space-md);
+        border-top: 1px solid rgba(245, 240, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--color-veil);
+      }
+
+      /* PARTENAIRES & LOGOS */
+      .footer-partners {
+        padding: var(--space-md) var(--space-md);
+        margin-bottom: var(--space-md);
+        text-align: center;
+        border-top: 1px solid rgba(245, 240, 255, 0.05);
+      }
+
+      .partners-label {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 0.7rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--color-cyan);
+        margin-bottom: 1.5rem;
+      }
+
+      .partners-grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .partner-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        min-width: 100px;
+        max-width: 200px;
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 4px;
+        opacity: 0.85;
+        transition: opacity 0.3s ease;
+      }
+
+      .partner-logo:hover {
+        opacity: 1;
+      }
+
+      .partner-logo img {
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      /* Texte simple pour les soutiens sans logo (DRAC) */
+      .partner-text {
+        font-family: var(--font-display);
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        color: var(--color-mist);
+        padding: 0.6rem 1rem;
+        border: 1px solid rgba(245, 240, 255, 0.1);
+        border-radius: 4px;
+        text-transform: uppercase;
+      }
+
+      /* Fallback robuste : si l'image n'a pas chargé, on applique .has-error sur le parent */
+      .partner-logo.has-error img {
+        display: none;
+      }
+
+      .partner-logo .partner-fallback {
+        display: none;
+      }
+
+      .partner-logo.has-error {
+        background: transparent;
+        border: 1px dashed rgba(245, 240, 255, 0.15);
+      }
+
+      .partner-logo.has-error .partner-fallback {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-mist);
+        text-align: center;
+        line-height: 1.4;
+      }
+
+      .footer-credits {
+        font-style: italic;
+        opacity: 0.7;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        .main-nav {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: var(--color-deep);
+          flex-direction: column;
+          padding: 2rem;
+          gap: 1.5rem;
+          border-left: 1px solid rgba(245, 240, 255, 0.05);
+          border-bottom: 1px solid rgba(245, 240, 255, 0.05);
+          transform: translateX(100%);
+          transition: transform 0.4s ease;
+        }
+
+        .main-nav.open {
+          transform: translateX(0);
+        }
+
+        .footer-inner {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          gap: 0.5rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </body>
+</html>

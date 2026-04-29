@@ -1,0 +1,983 @@
+---
+import Base from '../layouts/Base.astro';
+
+const spectacles = [
+  {
+    id: "explorations",
+    title: "Les P'tites Explorations Sonores",
+    tag: "Spectacle jeune public",
+    age: "Dès 3 ans",
+    duration: "À partir de 30 min",
+    capacity: "Sur demande",
+    description: [
+      "Un voyage sensoriel où les tout-petits sont invité·es à explorer le monde par le son. Voix, percussions et textures électroniques tissent ensemble un univers organique et enveloppant, inspiré des paysages sonores du Pacifique et des imaginaires de l'enfance.",
+      "Au fil des explorations, les enfants découvrent que la musique est partout — dans le vent, dans le corps, dans le silence. Une invitation à écouter autrement, à vibrer ensemble, à laisser la curiosité prendre le large.",
+    ],
+    formats: [
+      "Concert participatif",
+      "Sieste musicale immersive (voir ci-dessous)",
+      "Atelier-spectacle avec participation active",
+    ],
+    venues: "Médiathèques, festivals jeune public, écoles, MJC, centres culturels",
+    link: null,
+  },
+];
+
+const collabs = [
+  {
+    name: "Nevimbumbao",
+    role: "Chanteureuse",
+    genre: "Rock Lunaire",
+    description: "Formation de rock lunaire aux confins du monde, Nevimbumbao invente une musique qui échappe aux cases et aux frontières. Sacha y prête sa voix, ce timbre singulier qui sait habiter l'étrange et rendre l'inattendu familier.",
+    link: "https://www.nevimbumbao.com/",
+    linkLabel: "nevimbumbao.com",
+  },
+  {
+    name: "Cie LAPS / Équipe du Matin",
+    role: "Compositeur·rice",
+    genre: "Théâtre",
+    description: "Compagnie de théâtre dont Sacha signe les univers sonores. De l'intime au cosmique, les partitions composées pour la Cie LAPS épousent la dramaturgie au plus près — laissant la musique devenir personnage à part entière.",
+    spectacles: ["Elle & L'Infini", "C.E.N.D.R.E", "Nora s'en va"],
+    link: "http://www.lapsequipedumatin.com/",
+    linkLabel: "lapsequipedumatin.com",
+  },
+];
+
+const ateliers = [
+  {
+    icon: "🏥",
+    title: "Hôpital de jour",
+    subtitle: "Hôpital de jour de Ville-d'Avray",
+    public: "Adolescent·es et jeunes adultes (18-25 ans)",
+    format: "Séances hebdomadaires de 2h",
+    description: "Dans l'espace protégé de l'hôpital de jour, la musique devient un langage commun pour des jeunes en fragilité. Chaque séance est un espace de création sans jugement, où l'expression sonore et corporelle ouvre des chemins vers soi et vers l'autre.",
+  },
+  {
+    icon: "🎒",
+    title: "Écoles primaires",
+    subtitle: "Du CP au CM2",
+    public: "Enfants de 6 à 11 ans",
+    format: "Projets à l'année ou sur durée limitée, avec restitution",
+    description: "Des projets ancrés dans le temps long, qui font de la classe un vrai laboratoire artistique. Musique, danse, théâtre et émotions se croisent dans une démarche inclusive qui célèbre les cultures du monde et la singularité de chacun·e. La restitution — moment de partage avec les familles — est le cœur battant de chaque projet.",
+  },
+  {
+    icon: "🌱",
+    title: "Écoles maternelles",
+    subtitle: "Petite, moyenne et grande section",
+    public: "Enfants de 3 à 6 ans",
+    format: "Projets à l'année ou sur durée limitée, avec restitution",
+    description: "Le corps avant les mots. Les ateliers en maternelle partent du geste, du son, du souffle — tout ce que les enfants savent faire avant même de savoir le nommer. Une pédagogie de la sensorialité qui ouvre les oreilles, libère les corps et construit, doucement, le goût de l'art.",
+  },
+];
+---
+
+<Base
+  title="Projets — Sacha TERRAT"
+  description="Sacha TERRAT : spectacles jeune public (Les P'tites Explorations Sonores, Sieste Immersive), collaborations artistiques (Nevimbumbao, Cie LAPS), ateliers de médiation en école et hôpital."
+>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Au-delà du concert</span>
+      <h1 class="reveal">Projets</h1>
+      <p class="lead reveal">
+        Spectacles jeune public, musiques de scène, ateliers de médiation artistique.
+        Un écosystème de pratiques qui prolonge l'univers sonore de Sacha bien au-delà
+        des salles de concert.
+      </p>
+    </div>
+  </section>
+
+  <!-- NAV INTERNE -->
+  <div class="section-nav reveal">
+    <div class="container">
+      <a href="#explorations" class="section-nav-link">Les P'tites Explorations</a>
+      <a href="#collabs" class="section-nav-link">Collaborations</a>
+      <a href="#ateliers" class="section-nav-link">Ateliers & Médiation</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- P'TITES EXPLORATIONS SONORES                   -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="section" id="explorations">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Jeune public</span>
+        <h2>Les P'tites Explorations Sonores</h2>
+      </div>
+
+      <div class="project-intro reveal">
+        <div class="project-text">
+          <p>
+            Un rendez-vous musical destiné au jeune public à partir de 3 ans, sous la forme
+            de spectacles courts d'environ 30 minutes. Chaque création mêle les musiques actuelles
+            à d'autres disciplines artistiques — théâtre, danse, dessin — et des dispositifs
+            techniques permettant une immersion particulière : projection vidéo, diffusion du son
+            en multipoints, effets lumières.
+          </p>
+          <p>
+            Les spectacles abordent des thèmes variés : l'intelligence artificielle, le voyage,
+            l'évolution de la musique, les cultures du monde. C'est aussi l'occasion d'expliquer
+            de manière simple et imagée des concepts forts du son et des musiques actuelles —
+            synthèse sonore, propriétés physiques du son, la boîte à rythme. L'Océanie et la
+            Nouvelle-Calédonie, terre natale d'une partie des interprètes, sont des sources
+            d'inspiration permanentes.
+          </p>
+        </div>
+        <div class="project-meta">
+          <div class="meta-item">
+            <span class="meta-label">Public</span>
+            <span class="meta-value">Dès 3 ans</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Durée</span>
+            <span class="meta-value">~30 minutes par spectacle</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Lieux</span>
+            <span class="meta-value">Médiathèques, festivals jeune public, MJC, centres culturels, écoles</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Soutiens</span>
+            <span class="meta-value">MJC de Chaville (25 de la Vallée) · DRAC Île-de-France</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Tarif</span>
+            <span class="meta-value">Sur demande</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Les 4 spectacles -->
+      <div class="spectacles-head reveal">
+        <span class="eyebrow">Le catalogue</span>
+        <h3>Les spectacles</h3>
+      </div>
+
+      <div class="spectacles-grid">
+
+        <article class="spectacle-card reveal">
+          <span class="spectacle-emoji" aria-hidden="true">🌊</span>
+          <div class="spectacle-tags">
+            <span class="spectacle-tag">Lecture musicale</span>
+            <span class="spectacle-tag">Océanie</span>
+            <span class="spectacle-tag">Dessin</span>
+          </div>
+          <h3 class="spectacle-title">L'Île aux Monstres</h3>
+          <span class="spectacle-age">Dès 3 ans</span>
+          <p class="spectacle-desc">
+            Un voyage onirique au cœur du Pacifique et de ses légendes. Le public est invité
+            à suivre le parcours initiatique d'un frère et une sœur à la recherche de leur
+            peuple et à la conquête de leurs peurs. Ce conte est une fable environnementale
+            et humaine, qui incite à aller chercher au-delà des apparences et des préjugés.
+          </p>
+          <p class="spectacle-details">
+            Une occasion de découvrir la mythologie des îles du Pacifique, grâce aux projections
+            vidéo de dessins réalisés par Pierre-André Ballande et inspirés des bambous gravés kanak.
+          </p>
+        </article>
+
+        <article class="spectacle-card reveal">
+          <span class="spectacle-emoji" aria-hidden="true">🤖</span>
+          <div class="spectacle-tags">
+            <span class="spectacle-tag">Musique électronique</span>
+            <span class="spectacle-tag">Danse</span>
+            <span class="spectacle-tag">IA</span>
+          </div>
+          <h3 class="spectacle-title">S.E.R.J. 3000</h3>
+          <span class="spectacle-age">Dès 3 ans</span>
+          <p class="spectacle-desc">
+            Un·e scientifique spécialiste de l'intelligence artificielle présente sa toute
+            nouvelle invention : S.E.R.J. 3000, un robot professeur de danse qui chante et joue
+            de la musique. Mis en scène comme une conférence déjantée, le public est invité
+            tantôt à suivre les pas du robot, tantôt à lui en apprendre de nouveaux.
+          </p>
+          <p class="spectacle-details">
+            Au rythme de comptines remixées et de titres connus de la musique pop, une initiation
+            ludique à l'expression corporelle et au dancefloor — pour petits et grands.
+          </p>
+        </article>
+
+        <article class="spectacle-card reveal">
+          <span class="spectacle-emoji" aria-hidden="true">🎸</span>
+          <div class="spectacle-tags">
+            <span class="spectacle-tag">Rock</span>
+            <span class="spectacle-tag">Comédie musicale</span>
+            <span class="spectacle-tag">Voyage temporel</span>
+          </div>
+          <h3 class="spectacle-title">Rock Machine</h3>
+          <span class="spectacle-age">Dès 6 ans</span>
+          <p class="spectacle-desc">
+            Le monstre de la pollution sonore a pris forme et il menace le monde. Trois frères
+            musiciens armés de leur courage et de leurs guitares électriques partent à la
+            rescousse de la planète. Ils devront voyager à travers le temps et la musique pour
+            que le monde retrouve son harmonie.
+          </p>
+          <p class="spectacle-details">
+            Embarquez pour une aventure musico-spatio-temporelle avec Fuzz, Riff et Pogo —
+            entre rock et disco, une comédie musicale déjantée.
+          </p>
+        </article>
+
+        <article class="spectacle-card spectacle-featured reveal">
+          <span class="spectacle-emoji" aria-hidden="true">🌙</span>
+          <div class="spectacle-tags">
+            <span class="spectacle-tag">Écoute</span>
+            <span class="spectacle-tag">Détente</span>
+            <span class="spectacle-tag">Voyage musical</span>
+          </div>
+          <h3 class="spectacle-title">La Sieste Musicale</h3>
+          <span class="spectacle-age">Dès 6 ans</span>
+          <p class="spectacle-desc">
+            Un moment intimiste d'écoute et de relaxation. Un cocon sonore et musical, un voyage
+            au gré des sons, des bruits et des mélodies qui nous entourent. Les musiciens placés
+            au centre créent une mosaïque sonore qui invite à l'évasion, à l'imagination et à la
+            détente.
+          </p>
+          <p class="spectacle-details">
+            Dispositif de diffusion frontale ou immersive, avec un ensemble d'enceintes disposées
+            tout autour du public — le même système de spatialisation que pour Exomorph immersif.
+            Un moment doux à partager en famille.
+          </p>
+          <a href="/laboratoire#spatialisation" class="spectacle-link">Voir le dispositif immersif →</a>
+        </article>
+
+      </div>
+
+      <!-- Formule concerts -->
+      <div class="concerts-section reveal">
+        <span class="eyebrow">Formule concerts</span>
+        <h3>Les Concerts</h3>
+        <p>
+          L'équipe propose également une formule concert pour petits et grands, autour de thèmes
+          spécifiques ou sous forme de pot-pourri de comptines et chansons piochées à toutes
+          époques et aux quatre coins du monde. L'occasion de retrouver les compositions du
+          catalogue dans une forme musicale pure — pour chanter et danser ensemble.
+        </p>
+        <div class="concerts-grid">
+          <div class="concert-item">
+            <p class="concert-title">Le Bestiaire Musical</p>
+            <p class="concert-occasion">Halloween</p>
+            <p class="concert-desc">Un tour du monde des bêtes en musique — effrayantes ou rigolotes.</p>
+          </div>
+          <div class="concert-item">
+            <p class="concert-title">Autour du Monde</p>
+            <p class="concert-occasion">Toute l'année</p>
+            <p class="concert-desc">Un tour du monde des musiques et des cultures, pour les curieux de tous âges.</p>
+          </div>
+          <div class="concert-item">
+            <p class="concert-title">Les Fêtes de Fin d'Année</p>
+            <p class="concert-occasion">Décembre</p>
+            <p class="concert-desc">Un moment festif en famille pour chanter et danser sur les airs de la saison.</p>
+          </div>
+          <div class="concert-item">
+            <p class="concert-title">Pot-pourri</p>
+            <p class="concert-occasion">Toute l'année</p>
+            <p class="concert-desc">Comptines et chansons piochées à toutes époques et aux quatre coins du monde.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Les interprètes -->
+      <div class="interpretes-section">
+        <div class="interpretes-head reveal">
+          <span class="eyebrow">L'équipe</span>
+          <h3>Les interprètes</h3>
+        </div>
+        <div class="interpretes-grid">
+          <article class="interprete-card reveal">
+            <h4>Sacha TERRAT</h4>
+            <p class="interprete-role">Musique, composition, machines</p>
+            <p class="interprete-bio">Musicien·ne queer de Nouvelle-Calédonie, Sacha fusionne l'héritage insulaire avec des sons électroniques contemporains. Iel crée des performances immersives explorant les liens entre environnement, identité et expression.</p>
+          </article>
+          <article class="interprete-card reveal">
+            <h4>Julien BOULDOYRE</h4>
+            <p class="interprete-role">Guitare, chant, jeu d'acteur</p>
+            <p class="interprete-bio">Guitariste autodidacte, diplômé du Cours Florent, Julien crée des univers où folk, électro et jeu théâtral se rencontrent. Depuis 2022, il anime des ateliers d'éveil théâtral et musical.</p>
+          </article>
+          <article class="interprete-card reveal">
+            <h4>Pierre-André BALLANDE</h4>
+            <p class="interprete-role">Chant, jeu d'acteur, mise en scène</p>
+            <p class="interprete-bio">Formé en art dramatique en Nouvelle-Calédonie puis à l'école Jean Périmony, P.-A. Ballande explore la voix et le plateau avec un goût prononcé pour la création jeune public et le travail de troupe.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- SOUTIENS DRAC + MJC CHAVILLE -->
+      <div class="supports-section reveal">
+        <span class="eyebrow">Avec le soutien de</span>
+        <div class="supports-grid">
+          <div class="support-item">
+            <div class="support-text-only">
+              <h4>DRAC Île-de-France</h4>
+              <p>Direction Régionale des Affaires Culturelles. Soutien institutionnel de l'État au projet jeune public.</p>
+            </div>
+          </div>
+          <div class="support-item">
+            <div class="support-logo">
+              <img src="/images/logos/mjc-chaville.png" alt="MJC de Chaville" onerror="this.parentElement.classList.add('has-error')" />
+              <span class="support-fallback">MJC<br/>Chaville</span>
+            </div>
+            <div class="support-text">
+              <h4>MJC de Chaville (25 de la Vallée)</h4>
+              <p>Lieu d'accueil et coproducteur des P'tites Explorations Sonores. Espace dédié aux musiques actuelles et à la création jeune public.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-cta reveal">
+        <a href="mailto:sacha.terrat@gmail.com?subject=Les P'tites Explorations Sonores — demande de renseignements" class="btn btn-primary">
+          Demander un devis
+        </a>
+        <a href="/booking" class="btn">Voir les disponibilités</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- COLLABORATIONS                                 -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="section collabs-section" id="collabs">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">En dialogue</span>
+        <h2>Collaborations</h2>
+      </div>
+      <p class="section-intro reveal">
+        Parce que la création ne se fait jamais seul·e. Sacha prête sa voix, sa plume
+        musicale et son oreille à des projets qui résonnent avec son univers.
+      </p>
+
+      <div class="collabs-grid">
+
+        <!-- Nevimbumbao -->
+        <article class="collab-card reveal">
+          <div class="collab-header">
+            <div>
+              <span class="collab-tag">Rock Lunaire</span>
+              <h3>Nevimbumbao</h3>
+              <p class="collab-role">Chanteureuse</p>
+            </div>
+          </div>
+          <p>
+            Formation de rock lunaire aux confins du monde, Nevimbumbao invente une musique
+            qui échappe aux cases et aux frontières. Sacha y prête sa voix — ce timbre
+            singulier qui sait habiter l'étrange et rendre l'inattendu familier.
+          </p>
+          <a href="https://www.nevimbumbao.com/" target="_blank" rel="noopener" class="collab-link">
+            nevimbumbao.com →
+          </a>
+        </article>
+
+        <!-- Cie LAPS -->
+        <article class="collab-card reveal">
+          <div class="collab-header">
+            <div>
+              <span class="collab-tag">Théâtre</span>
+              <h3>Cie LAPS / Équipe du Matin</h3>
+              <p class="collab-role">Compositeur·rice</p>
+            </div>
+          </div>
+          <p>
+            Compagnie de théâtre dont Sacha signe les univers sonores. De l'intime au
+            cosmique, les partitions composées pour la Cie LAPS épousent la dramaturgie
+            au plus près — laissant la musique devenir personnage à part entière.
+          </p>
+          <div class="collab-spectacles">
+            <span class="meta-label">Spectacles</span>
+            <ul>
+              <li><em>Elle & L'Infini</em></li>
+              <li><em>C.E.N.D.R.E</em></li>
+              <li><em>Nora s'en va</em></li>
+            </ul>
+          </div>
+          <a href="http://www.lapsequipedumatin.com/" target="_blank" rel="noopener" class="collab-link">
+            lapsequipedumatin.com →
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- ATELIERS & MÉDIATION                           -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="section ateliers-section" id="ateliers">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Médiation artistique</span>
+        <h2>Ateliers & Médiation</h2>
+      </div>
+
+      <div class="atelier-intro reveal">
+        <p class="lead">
+          Faire de l'art avec celles et ceux qui en ont le plus besoin.
+        </p>
+        <p>
+          Depuis plusieurs années, Sacha intervient dans des contextes variés — soin, éducation,
+          milieu ordinaire et milieu spécialisé — avec une conviction : l'expression artistique
+          et corporelle est un droit, pas un luxe. Musique, danse, théâtre, émotions et cultures
+          du monde se mêlent dans une démarche résolument inclusive, qui part toujours du corps
+          et de ce que chacun·e porte en soi.
+        </p>
+      </div>
+
+      <div class="ateliers-grid">
+        {ateliers.map(atelier => (
+          <article class="atelier-card reveal">
+            <div class="atelier-icon">{atelier.icon}</div>
+            <h3>{atelier.title}</h3>
+            <p class="atelier-subtitle">{atelier.subtitle}</p>
+            <div class="atelier-meta">
+              <span class="meta-label">Public</span>
+              <span class="meta-value">{atelier.public}</span>
+            </div>
+            <div class="atelier-meta">
+              <span class="meta-label">Format</span>
+              <span class="meta-value">{atelier.format}</span>
+            </div>
+            <p class="atelier-description">{atelier.description}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="atelier-cta reveal">
+        <div class="atelier-cta-text">
+          <h3>Une intervention dans votre structure ?</h3>
+          <p>Chaque projet est construit sur-mesure selon le contexte, le public et la durée disponible. Tarif sur demande.</p>
+        </div>
+        <a href="mailto:sacha.terrat@gmail.com?subject=Demande d'atelier de médiation artistique" class="btn btn-primary">
+          Prendre contact
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .page-hero {
+    padding: 180px 0 var(--space-md);
+  }
+
+  /* NAV INTERNE */
+  .section-nav {
+    background: var(--color-deep);
+    border-bottom: 1px solid rgba(245, 240, 255, 0.05);
+    position: sticky;
+    top: 72px;
+    z-index: 50;
+  }
+
+  .section-nav .container {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .section-nav-link {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-mist);
+    padding: 1rem 2rem;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .section-nav-link:hover {
+    color: var(--color-pearl);
+    border-bottom-color: var(--color-coral);
+  }
+
+  /* INTRO PROJET */
+  .project-intro {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    align-items: start;
+  }
+
+  .project-meta {
+    background: var(--color-abyss);
+    padding: 2rem;
+    border-left: 2px solid var(--color-cyan);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .meta-label {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+  }
+
+  .meta-value {
+    font-size: 0.95rem;
+    color: var(--color-pearl);
+  }
+
+  /* SPECTACLES */
+  .spectacles-head { margin-bottom: var(--space-md); }
+  .spectacles-head h3 { font-size: 1.8rem; margin-top: 0.5rem; }
+
+  .spectacles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .spectacle-card {
+    background: var(--color-abyss);
+    padding: 2rem;
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .spectacle-card:hover {
+    border-color: var(--color-coral);
+    transform: translateY(-3px);
+  }
+
+  .spectacle-featured {
+    border-color: rgba(91, 233, 255, 0.3);
+    background: linear-gradient(180deg, var(--color-abyss), var(--color-violet));
+  }
+
+  .spectacle-emoji { font-size: 2.5rem; }
+
+  .spectacle-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .spectacle-tag {
+    font-family: var(--font-display);
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    border: 1px solid rgba(91, 233, 255, 0.3);
+    padding: 0.2rem 0.5rem;
+  }
+
+  .spectacle-title { font-size: 1.3rem; color: var(--color-pearl); margin: 0; }
+
+  .spectacle-age {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+  }
+
+  .spectacle-desc { font-size: 0.95rem; line-height: 1.7; color: var(--color-mist); margin: 0; }
+
+  .spectacle-details {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-veil);
+    font-style: italic;
+    margin: 0;
+  }
+
+  .spectacle-link {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(245, 240, 255, 0.05);
+  }
+
+  /* FORMULE CONCERTS */
+  .concerts-section {
+    background: var(--color-deep);
+    padding: 2.5rem;
+    margin-bottom: var(--space-lg);
+    border: 1px solid rgba(245, 240, 255, 0.05);
+  }
+
+  .concerts-section h3 { font-size: 1.5rem; margin: 0.5rem 0 1rem; }
+  .concerts-section > p { max-width: 65ch; margin-bottom: var(--space-md); }
+
+  .concerts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: var(--space-md);
+  }
+
+  .concert-item {
+    padding: 1.2rem;
+    background: var(--color-abyss);
+    border-left: 2px solid var(--color-coral);
+  }
+
+  .concert-title {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--color-pearl);
+    margin-bottom: 0.3rem;
+  }
+
+  .concert-occasion {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-bottom: 0.6rem;
+  }
+
+  .concert-desc { font-size: 0.85rem; color: var(--color-mist); margin: 0; }
+
+  /* INTERPRÈTES */
+  .interpretes-section { margin-bottom: var(--space-lg); }
+  .interpretes-head { margin-bottom: var(--space-md); }
+  .interpretes-head h3 { font-size: 1.5rem; margin-top: 0.5rem; }
+
+  .interpretes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .interprete-card {
+    padding: 1.5rem;
+    background: var(--color-abyss);
+    border-top: 2px solid var(--color-coral);
+  }
+
+  .interprete-card h4 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--color-pearl);
+    margin-bottom: 0.4rem;
+  }
+
+  .interprete-role {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-bottom: 1rem;
+  }
+
+  .interprete-bio { font-size: 0.9rem; line-height: 1.6; margin: 0; }
+
+  .section-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: var(--space-md);
+  }
+
+  /* SOUTIENS (DRAC, MJC...) */
+  .supports-section {
+    margin: var(--space-lg) 0;
+    padding: 2rem;
+    background: var(--color-deep);
+    border-top: 2px solid var(--color-cyan);
+  }
+
+  .supports-section .eyebrow {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .supports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .support-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .support-logo {
+    width: 100px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(245, 240, 255, 0.03);
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    padding: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .support-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  .support-logo img.error {
+    display: none;
+  }
+
+  .support-fallback {
+    display: none;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .support-logo:has(img.error) .support-fallback {
+    display: block;
+  }
+
+  .support-text h4 {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: var(--color-pearl);
+    margin-bottom: 0.4rem;
+  }
+
+  .support-text p {
+    font-size: 0.85rem;
+    color: var(--color-mist);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .support-item {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .support-logo {
+      margin: 0 auto;
+    }
+  }
+
+  /* COLLABS */
+  .collabs-section {
+    background: var(--color-deep);
+  }
+
+  .section-intro {
+    max-width: 65ch;
+    margin-bottom: var(--space-lg);
+  }
+
+  .collabs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .collab-card {
+    background: var(--color-abyss);
+    padding: 2rem;
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    transition: all 0.4s ease;
+  }
+
+  .collab-card:hover {
+    border-color: var(--color-coral);
+    transform: translateY(-2px);
+  }
+
+  .collab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .collab-tag {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    margin-bottom: 0.5rem;
+  }
+
+  .collab-card h3 {
+    margin-bottom: 0.3rem;
+    color: var(--color-pearl);
+  }
+
+  .collab-role {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-bottom: 0;
+  }
+
+  .collab-spectacles {
+    margin: 1.2rem 0;
+  }
+
+  .collab-spectacles ul {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+
+  .collab-spectacles li {
+    color: var(--color-mist);
+    font-size: 0.95rem;
+    padding: 0.2rem 0;
+  }
+
+  .collab-spectacles li::before {
+    content: '→ ';
+    color: var(--color-cyan);
+  }
+
+  .collab-link {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    display: inline-block;
+    margin-top: 1.5rem;
+  }
+
+  /* ATELIERS */
+  .ateliers-section {
+    background: linear-gradient(180deg, var(--color-night), var(--color-deep));
+  }
+
+  .atelier-intro {
+    margin-bottom: var(--space-lg);
+  }
+
+  .atelier-intro .lead {
+    margin-bottom: var(--space-sm);
+    color: var(--color-pearl);
+  }
+
+  .ateliers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .atelier-card {
+    background: var(--color-abyss);
+    padding: 2rem;
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    transition: all 0.4s ease;
+  }
+
+  .atelier-card:hover {
+    border-color: var(--color-cyan);
+  }
+
+  .atelier-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .atelier-card h3 {
+    margin-bottom: 0.3rem;
+    color: var(--color-pearl);
+  }
+
+  .atelier-subtitle {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    margin-bottom: 1.2rem;
+  }
+
+  .atelier-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .atelier-description {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-mist);
+    border-top: 1px solid rgba(245, 240, 255, 0.05);
+    padding-top: 1rem;
+  }
+
+  .atelier-cta {
+    background: linear-gradient(135deg, var(--color-violet), var(--color-deep));
+    border: 1px solid rgba(91, 233, 255, 0.2);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .atelier-cta h3 {
+    margin-bottom: 0.5rem;
+    color: var(--color-pearl);
+  }
+
+  .atelier-cta p {
+    max-width: 50ch;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .project-intro {
+      grid-template-columns: 1fr;
+    }
+
+    .atelier-cta {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Fallback élégant pour les logos manquants
+  document.querySelectorAll('.support-logo img').forEach((img) => {
+    img.addEventListener('error', () => {
+      img.classList.add('error');
+    });
+  });
+</script>

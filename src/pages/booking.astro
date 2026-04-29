@@ -1,0 +1,597 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Booking & Press Kit — Sacha TERRAT"
+  description="Press kit, fiche technique et contact pour booker Sacha TERRAT. Live duo Oceanic Trip-Hop ou version immersive 360°. Sélection KeyChange TLP 2025."
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Pour les programmateur·ices</span>
+      <h1 class="reveal">Booking<br/>& Press Kit</h1>
+      <p class="lead reveal">
+        Tout ce dont vous avez besoin pour inviter Sacha TERRAT sur votre scène.
+        Téléchargements rapides, infos techniques claires, contact direct.
+      </p>
+    </div>
+  </section>
+
+  <!-- TÉLÉCHARGEMENTS -->
+  <section class="section">
+    <div class="container">
+      <div class="downloads-grid">
+        <a href="/presskit/SachaTERRAT_EXOMORPH_EPK.pdf" download class="download-card download-primary reveal">
+          <div class="download-icon">↓</div>
+          <div class="download-info">
+            <span class="download-type">PDF · 8 pages · FR</span>
+            <h3>EPK Exomorph</h3>
+            <p>Bio, presse, photos, liens</p>
+          </div>
+        </a>
+        <a href="/presskit/SachaTERRAT_SOLO_FICHE_TECH_fr.pdf" download class="download-card reveal">
+          <div class="download-icon">↓</div>
+          <div class="download-info">
+            <span class="download-type">PDF · Format solo · FR</span>
+            <h3>Tech rider UNIMORPH</h3>
+            <p>Solo · électro autonome</p>
+          </div>
+        </a>
+        <a href="/presskit/SachaTERRAT_EXOMORPH_TechRider.pdf" download class="download-card reveal">
+          <div class="download-icon">↓</div>
+          <div class="download-info">
+            <span class="download-type">PDF · Format duo · EN</span>
+            <h3>Tech rider EXOMORPH</h3>
+            <p>Duo with drums · in English</p>
+          </div>
+        </a>
+        <a href="/presskit/SachaTERRAT_PRESS_PHOTOS.zip" download class="download-card reveal">
+          <div class="download-icon">↓</div>
+          <div class="download-info">
+            <span class="download-type">ZIP · Photos HD</span>
+            <h3>Photos presse</h3>
+            <p>Crédits : Renata Sanz Fuganti · Vojta Janyska · Linda Kurtovitch</p>
+          </div>
+        </a>
+      </div>
+
+      <p class="download-note reveal">
+        💡 Astuce : si le PDF s'ouvre dans le navigateur au lieu de se télécharger, fais un
+        clic-droit sur le bouton et choisis "Enregistrer la cible sous…".
+      </p>
+    </div>
+  </section>
+
+  <!-- VIDÉO LIVE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Captation live</span>
+        <h2>Voir le live</h2>
+      </div>
+      <div class="video-frame reveal">
+        <!-- À remplacer par un vrai embed YouTube/Vimeo -->
+        <iframe
+          src="https://www.youtube.com/embed/m2KCxKWURMU"
+          title="Sacha TERRAT — Live Exomorph"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMATS -->
+  <section class="section formats-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Trois formats disponibles</span>
+        <h2>Versions du spectacle</h2>
+      </div>
+      <div class="formats-grid">
+
+        <!-- SOLO -->
+        <article class="format-card reveal">
+          <div class="format-tag">Format solo</div>
+          <h3>EXOMORPH SOLO</h3>
+          <p class="format-duration">15-45 minutes · adaptable</p>
+          <ul class="format-list">
+            <li>Sacha seul·e (chant, machines, danse)</li>
+            <li>Installation rapide (15 min)</li>
+            <li>Technique très légère</li>
+            <li>Carte son XR18 + micro + ordinateur</li>
+            <li>Adaptable à toutes contraintes scéniques</li>
+          </ul>
+          <p class="format-context">Pour scènes ouvertes, premières parties, showcases, cafés-concerts, événements à technique réduite.</p>
+          <a href="https://www.youtube.com/watch?v=7iBM50Vn4qM" target="_blank" rel="noopener" class="format-link">
+            Voir une captation solo →
+          </a>
+        </article>
+
+        <!-- DUO (mis en avant comme format principal) -->
+        <article class="format-card format-card-featured reveal">
+          <div class="format-tag">Format duo</div>
+          <h3>EXOMORPH LIVE</h3>
+          <p class="format-duration">45-60 minutes</p>
+          <ul class="format-list">
+            <li>Sacha (chant, machines, danse)</li>
+            <li>Zachary Lebourg (batterie, percussions)</li>
+            <li>Lumière inspirée danse contemporaine</li>
+            <li>Projections vidéo (option)</li>
+            <li>Système 4 voies + IEM</li>
+          </ul>
+          <p class="format-context">Pour clubs, salles de 100 à 800 places, festivals indoor/outdoor.</p>
+        </article>
+
+        <!-- IMMERSIF -->
+        <article class="format-card reveal">
+          <div class="format-tag">Format immersif 360°</div>
+          <h3>EXOMORPH IMMERSIF</h3>
+          <p class="format-duration">45 minutes</p>
+          <ul class="format-list">
+            <li>Spatialisation sonore en direct</li>
+            <li>Avec l'ingénieur du son Lambert Sylvain</li>
+            <li>Présenté à Electrochic 2024 (MJC de Chaville)</li>
+            <li>Public assis ou allongé</li>
+            <li>Système 4 ou 8 points adaptable</li>
+          </ul>
+          <p class="format-context">Pour festivals arts numériques, lieux dédiés à l'écoute, planétariums.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LABO BANDEAU -->
+  <section class="section labo-bandeau">
+    <div class="container">
+      <div class="labo-band reveal">
+        <div>
+          <span class="eyebrow">Art & Sciences</span>
+          <h3>Lutherie numérique, spatialisation, Max/MSP</h3>
+          <p>Sacha programme ses propres instruments et dispositifs immersifs. Une dimension technique et artistique disponible pour des résidences, collaborations ou festivals d'arts numériques.</p>
+        </div>
+        <a href="/laboratoire" class="btn">Découvrir le laboratoire →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEYCHANGE -->
+  <section class="section keychange-section">
+    <div class="container">
+      <div class="keychange-band reveal">
+        <div class="keychange-logo">
+          <img src="/images/logos/keychange.png" alt="KeyChange" onerror="this.parentElement.classList.add('has-error')" />
+          <span class="keychange-fallback">KEYCHANGE</span>
+        </div>
+        <div>
+          <span class="eyebrow">Sélection 2025</span>
+          <h3>Talent du KeyChange Europe Programme</h3>
+          <p>
+            Sacha fait partie des artistes sélectionné·es en 2025 par le KeyChange Europe
+            Talent Leadership Programme — programme de mentorat européen dédié aux femmes
+            et minorités de genre dans la musique, financé par l'Union Européenne et axé
+            sur la diversité, l'équité, l'inclusion et l'accessibilité.
+          </p>
+        </div>
+        <a href="https://www.keychange.eu/directory/underrepresented-talent-profile/sacha-terrat" target="_blank" rel="noopener" class="btn">
+          Voir le profil →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATES PASSÉES MARQUANTES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Sélection</span>
+        <h2>Parcours récent</h2>
+      </div>
+      <ul class="dates-list">
+        <li class="reveal"><span class="date-year">2025</span> <span class="date-event">KeyChange Europe Talent Leadership Programme</span> <span class="date-place">Europe</span></li>
+        <li class="reveal"><span class="date-year">2025</span> <span class="date-event">Female Force Festival</span> <span class="date-place">Aarhus, Danemark</span></li>
+        <li class="reveal"><span class="date-year">2025</span> <span class="date-event">Festival des Murs à Pêches</span> <span class="date-place">Montreuil</span></li>
+        <li class="reveal"><span class="date-year">2025</span> <span class="date-event">France TV — "Ils font bouger la Calédonie"</span> <span class="date-place">Documentaire</span></li>
+        <li class="reveal"><span class="date-year">2024</span> <span class="date-event">Festival Electrochic — Exomorph immersif (MJC de Chaville)</span> <span class="date-place">Chaville</span></li>
+        <li class="reveal"><span class="date-year">2021</span> <span class="date-event">Festival d'Avignon — Plateau Commun NC</span> <span class="date-place">Avignon</span></li>
+        <li class="reveal"><span class="date-year">2021</span> <span class="date-event">Cabaret Aléatoire — Résidence Exomorph immersif</span> <span class="date-place">Marseille</span></li>
+        <li class="reveal"><span class="date-year">2019</span> <span class="date-event">Cité Internationale des Arts — Résidence</span> <span class="date-place">Paris</span></li>
+      </ul>
+      <p class="parcours-cta reveal">
+        <a href="/live">Voir tout le parcours →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section">
+    <div class="container">
+      <div class="contact-box reveal">
+        <span class="eyebrow">Contact direct</span>
+        <h2>Parlons-en</h2>
+        <p class="lead">Auteur, compositeur, interprète, producteur, régisseur technique — Sacha gère tout en direct.</p>
+        <div class="contact-grid">
+          <a href="mailto:sacha.terrat@gmail.com" class="contact-item">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">sacha.terrat@gmail.com</span>
+          </a>
+          <a href="tel:+33617277177" class="contact-item">
+            <span class="contact-label">Téléphone</span>
+            <span class="contact-value">+33 6 17 27 71 77</span>
+          </a>
+          <a href="https://www.instagram.com/sacha.terrat.official/" target="_blank" rel="noopener" class="contact-item">
+            <span class="contact-label">Instagram</span>
+            <span class="contact-value">@sacha.terrat.official</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding: 180px 0 var(--space-md);
+  }
+
+  .page-hero h1 {
+    margin: 1rem 0 2rem;
+  }
+
+  /* DOWNLOADS */
+  .downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .download-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    background: var(--color-abyss);
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    color: var(--color-pearl);
+    transition: all 0.4s ease;
+    text-decoration: none;
+  }
+
+  .download-card:hover {
+    border-color: var(--color-cyan);
+    transform: translateY(-2px);
+    background: var(--color-violet);
+  }
+
+  .download-primary {
+    background: linear-gradient(135deg, var(--color-coral), var(--color-violet));
+    border-color: transparent;
+  }
+
+  .download-primary:hover {
+    background: linear-gradient(135deg, var(--color-cyan), var(--color-coral));
+  }
+
+  .download-icon {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-cyan);
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+  }
+
+  .download-primary .download-icon {
+    color: var(--color-pearl);
+    border-color: var(--color-pearl);
+  }
+
+  .download-type {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-veil);
+    margin-bottom: 0.3rem;
+  }
+
+  .download-info h3 {
+    color: var(--color-pearl);
+    margin-bottom: 0.2rem;
+  }
+
+  .download-info p {
+    font-size: 0.85rem;
+    color: var(--color-mist);
+    margin: 0;
+  }
+
+  .download-note {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-veil);
+    font-style: italic;
+  }
+
+  /* LABO BANDEAU */
+  .labo-band {
+    background: linear-gradient(135deg, var(--color-deep), var(--color-violet));
+    border: 1px solid rgba(91, 233, 255, 0.2);
+    padding: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+  .labo-band h3 { margin-bottom: 0.5rem; color: var(--color-pearl); }
+  .labo-band p { max-width: 55ch; margin: 0; font-size: 0.95rem; }
+
+  /* KEYCHANGE */
+  .keychange-band {
+    background: var(--color-abyss);
+    border: 1px solid rgba(255, 61, 138, 0.3);
+    border-left: 3px solid var(--color-coral);
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .keychange-logo {
+    width: 120px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 4px;
+    padding: 8px 12px;
+  }
+
+  .keychange-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .keychange-logo.has-error {
+    background: transparent;
+    border: 1px solid var(--color-coral);
+    padding: 0.6rem 1rem;
+  }
+
+  .keychange-logo.has-error img {
+    display: none;
+  }
+
+  .keychange-fallback {
+    display: none;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    color: var(--color-coral);
+  }
+
+  .keychange-logo.has-error .keychange-fallback {
+    display: block;
+  }
+
+  .keychange-band h3 { margin-bottom: 0.5rem; color: var(--color-pearl); }
+  .keychange-band p { max-width: 55ch; margin: 0; font-size: 0.95rem; }
+
+  @media (max-width: 768px) {
+    .keychange-band {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .keychange-logo {
+      margin: 0 auto;
+    }
+  }
+
+  .parcours-cta {
+    margin-top: var(--space-md);
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* VIDEO */
+  .video-frame {
+    aspect-ratio: 16/9;
+    background: var(--color-deep);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* FORMATS */
+  .formats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .format-card {
+    background: var(--color-abyss);
+    padding: 2rem;
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    position: relative;
+    transition: all 0.4s ease;
+  }
+
+  .format-card:hover {
+    border-color: var(--color-coral);
+  }
+
+  .format-card-featured {
+    border-color: var(--color-cyan);
+    background: linear-gradient(180deg, var(--color-abyss) 0%, var(--color-violet) 100%);
+  }
+
+  .format-tag {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-bottom: 0.5rem;
+  }
+
+  .format-duration {
+    font-family: var(--font-display);
+    color: var(--color-coral);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+  }
+
+  .format-list {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .format-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(245, 240, 255, 0.05);
+    color: var(--color-mist);
+    font-size: 0.95rem;
+  }
+
+  .format-list li::before {
+    content: '→ ';
+    color: var(--color-cyan);
+    margin-right: 0.5rem;
+  }
+
+  .format-context {
+    font-style: italic;
+    color: var(--color-veil);
+    font-size: 0.9rem;
+  }
+
+  .format-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    border-top: 1px solid rgba(91, 233, 255, 0.2);
+    padding-top: 0.8rem;
+  }
+
+  .format-link:hover {
+    color: var(--color-coral);
+  }
+
+  /* DATES */
+  .dates-list {
+    list-style: none;
+  }
+
+  .dates-list li {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 2rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(245, 240, 255, 0.05);
+    align-items: baseline;
+    transition: padding 0.3s ease;
+  }
+
+  .dates-list li:hover {
+    padding-left: 1rem;
+  }
+
+  .date-year {
+    font-family: var(--font-display);
+    color: var(--color-cyan);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+  }
+
+  .date-event {
+    color: var(--color-pearl);
+    font-weight: 500;
+  }
+
+  .date-place {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-veil);
+  }
+
+  /* CONTACT */
+  .contact-box {
+    background: linear-gradient(135deg, var(--color-violet), var(--color-deep));
+    padding: var(--space-lg);
+    border: 1px solid rgba(91, 233, 255, 0.2);
+    text-align: center;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: var(--space-md);
+  }
+
+  .contact-item {
+    padding: 1.5rem;
+    background: rgba(10, 10, 20, 0.5);
+    text-align: center;
+    color: var(--color-pearl);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .contact-item:hover {
+    border-color: var(--color-coral);
+    color: var(--color-coral);
+    transform: translateY(-2px);
+  }
+
+  .contact-label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-value {
+    display: block;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .dates-list li {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+  }
+</style>

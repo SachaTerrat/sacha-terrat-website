@@ -1,0 +1,812 @@
+---
+import Base from '../layouts/Base.astro';
+
+// ═══════════════════════════════════════════════════════════
+// 📅 AGENDA — Pour ajouter une date, copie-colle un bloc
+//    Le système détecte automatiquement passé / futur
+// ═══════════════════════════════════════════════════════════
+
+const allDates = [
+  // Dates futures 2026
+  {
+    date: "2026-05-22",        // ⚠️ Toujours format YYYY-MM-DD
+    dateDisplay: "22 mai 2026",
+    venue: "La Clef",
+    city: "Saint-Germain-en-Laye",
+    country: "France",
+    format: "Exomorph solo",
+    time: "20h",
+    note: "Scène ouverte",
+    ticketLink: null,           // null = pas de lien, ou "https://..."
+    ticketLabel: null,
+  },
+  {
+    date: "2026-05-30",
+    dateDisplay: "30 mai 2026",
+    venue: "Musiques Tangentes",
+    city: "Malakoff",
+    country: "France",
+    format: "Exomorph duo",
+    time: "20h",
+    note: "Fête de l'école Musiques Tangentes",
+    ticketLink: null,
+    ticketLabel: "Entrée libre",
+  },
+
+  // ═══ DATES PASSÉES MARQUANTES (8 événements fournis par Sacha) ═══
+  {
+    date: "2025-11-01",
+    dateDisplay: "Novembre 2025",
+    venue: "Female Force Festival",
+    city: "Aarhus",
+    country: "Danemark",
+    type: "Festival",
+    description: "Festival dédié aux artistes féminines et aux minorités de genre",
+    externalLink: "https://www.femaleforcefestival.com/artists-2025",
+  },
+  {
+    date: "2025-06-01",
+    dateDisplay: "Juin 2025",
+    venue: "Festival des Murs à Pêches",
+    city: "Montreuil",
+    country: "France",
+    format: "Exomorph duo",
+    type: "Concert",
+    description: "Concert en duo avec le batteur Zachary Lebourg",
+    externalLink: null,
+  },
+  {
+    date: "2025-04-01",
+    dateDisplay: "Avril–Octobre 2025",
+    venue: "KeyChange Europe TLP",
+    city: "Europe",
+    country: "",
+    type: "Programme",
+    description: "Programme de mentorat européen pour les femmes et minorités de genre dans la musique, focus D.E.I.A.",
+    externalLink: "https://www.keychange.eu/directory/underrepresented-talent-profile/sacha-terrat",
+  },
+  {
+    date: "2025-01-01",
+    dateDisplay: "2025",
+    venue: "Ils font bouger la Calédonie",
+    city: "Paris",
+    country: "France",
+    type: "Documentaire",
+    description: "Documentaire France TV par Lionel Boisseau — Sacha TERRAT : créer sans frontières",
+    externalLink: "https://www.france.tv/la1ere/nouvelle-caledonie/ils-font-bouger-la/7663118-sacha-terrat-creer-sans-frontiere.html",
+  },
+  {
+    date: "2024-03-01",
+    dateDisplay: "Mars 2024",
+    venue: "Festival Electrochic — Exomorph immersif",
+    city: "Chaville",
+    country: "France",
+    type: "Résidence",
+    description: "Résidence sur la spatialisation sonore 360° avec Lambert Sylvain et Zachary Lebourg, accueillie par la MJC de Chaville (25 de la Vallée)",
+    externalLink: "http://www.festivalelectrochic.fr/artistes/sachat-terrat",
+  },
+  {
+    date: "2022-01-01",
+    dateDisplay: "2022",
+    venue: "Ultra-Sons — Sacha TERRAT",
+    city: "Nouméa",
+    country: "Nouvelle-Calédonie",
+    type: "Documentaire",
+    description: "Reportage à l'occasion du tournage du clip Oumuamua",
+    externalLink: "https://la1ere.franceinfo.fr/decouverte-du-trip-hop-caledonien-de-sacha-terrat-1368242.html",
+  },
+  {
+    date: "2021-07-01",
+    dateDisplay: "Juillet 2021",
+    venue: "Festival d'Avignon — Plateau Commun Nouvelle-Calédonie",
+    city: "Avignon",
+    country: "France",
+    type: "Concert",
+    description: "Concert en duo avec l'artiste kanak Trotroymeresh",
+    externalLink: "https://www.facebook.com/maison.delanouvellecaledonie/posts/4747948215234595",
+  },
+  {
+    date: "2021-04-01",
+    dateDisplay: "Avril 2021",
+    venue: "Cabaret Aléatoire — Exomorph immersif",
+    city: "Marseille",
+    country: "France",
+    type: "Résidence",
+    description: "Résidence sur la spatialisation sonore 360° avec Lambert Sylvain",
+    externalLink: null,
+  },
+  {
+    date: "2019-07-01",
+    dateDisplay: "Juillet–Décembre 2019",
+    venue: "Cité Internationale des Arts",
+    city: "Paris",
+    country: "France",
+    type: "Résidence",
+    description: "Résidence de 5 mois en recherche et collaboration avec des artistes internationaux pluridisciplinaires (VJ, compositeur·rices, danseur·euses)",
+    externalLink: "https://lepetitjournal.com/nouvelle-caledonie/sacha-terrat-voyage-sonore-et-visuel-en-oceanic-trip-hop-298037",
+  },
+];
+
+// Logique automatique passé / futur
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const upcomingDates = allDates
+  .filter(d => new Date(d.date) >= today)
+  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+const pastDates = allDates
+  .filter(d => new Date(d.date) < today)
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Schema.org Event pour le SEO Google
+const eventsSchema = upcomingDates.map(d => ({
+  "@context": "https://schema.org",
+  "@type": "MusicEvent",
+  "name": `Sacha TERRAT — ${d.format}`,
+  "startDate": d.date,
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": d.venue,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": d.city,
+      "addressCountry": d.country
+    }
+  },
+  "performer": {
+    "@type": "MusicGroup",
+    "name": "Sacha TERRAT",
+    "url": "https://www.sachamakesmusic.com"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": d.venue
+  }
+}));
+---
+
+<Base
+  title="Live & Concerts — Sacha TERRAT"
+  description="Sacha TERRAT en concert : agenda 2026, live duo Oceanic Trip-Hop et version immersive 360° avec Lambert Sylvain."
+>
+  <!-- Schema.org pour les événements (SEO Google) -->
+  {eventsSchema.map(schema => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+
+  <!-- HERO -->
+  <section class="page-hero with-image">
+    <div class="page-hero-bg" aria-hidden="true">
+      <img src="/images/sacha-live.jpg" alt="" />
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="container">
+      <span class="eyebrow reveal">Sur scène</span>
+      <h1 class="reveal">Live</h1>
+      <p class="lead reveal">
+        Un voyage où lumière, vidéo et chorégraphie viennent peindre le monde rêvé par l'artiste.
+        Accompagné·e du batteur Zachary Lebourg.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ PROCHAINES DATES ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Agenda</span>
+        <h2>Prochaines dates</h2>
+      </div>
+
+      {upcomingDates.length > 0 ? (
+        <div class="agenda-list">
+          {upcomingDates.map(d => (
+            <article class="agenda-item reveal">
+              <div class="agenda-date">
+                <span class="date-display">{d.dateDisplay}</span>
+                {d.time && <span class="date-time">{d.time}</span>}
+              </div>
+              <div class="agenda-info">
+                <h3>{d.venue}</h3>
+                <p class="agenda-place">{d.city}{d.country !== "France" ? ` · ${d.country}` : ""}</p>
+                <p class="agenda-format">{d.format}</p>
+                {d.note && <p class="agenda-note">{d.note}</p>}
+              </div>
+              <div class="agenda-action">
+                {d.ticketLink ? (
+                  <a href={d.ticketLink} target="_blank" rel="noopener" class="btn btn-primary">
+                    Billetterie →
+                  </a>
+                ) : d.ticketLabel ? (
+                  <span class="agenda-tag">{d.ticketLabel}</span>
+                ) : (
+                  <span class="agenda-tag">Plus d'infos bientôt</span>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="upcoming reveal">
+          <p class="lead">
+            Tournée en cours de construction.<br/>
+            <a href="/booking">Programmateur·ices : voir le press kit →</a>
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- VIDÉO LIVE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Captation</span>
+        <h2>Live Exomorph</h2>
+      </div>
+      <div class="video-frame reveal">
+        <iframe
+          src="https://www.youtube.com/embed/m2KCxKWURMU"
+          title="Sacha TERRAT — Live Exomorph"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TROIS FORMATS ═══ -->
+  <section class="section formats-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Trois formats</span>
+        <h2>Versions du spectacle</h2>
+      </div>
+      <p class="section-intro reveal">
+        EXOMORPH se décline en trois formats distincts, du solo léger pour scènes ouvertes
+        à la version immersive 360°. Chaque format est conçu pour s'adapter aux contraintes
+        et aux ambitions du lieu d'accueil.
+      </p>
+      <div class="formats-mini-grid">
+        <article class="format-mini reveal">
+          <span class="format-mini-tag">Solo</span>
+          <h3>Léger & flexible</h3>
+          <p>Sacha seul·e, installation rapide, technique minimale. Idéal pour scènes ouvertes, premières parties, showcases.</p>
+          <a href="https://www.youtube.com/watch?v=7iBM50Vn4qM" target="_blank" rel="noopener" class="format-mini-link">
+            Voir une captation solo →
+          </a>
+        </article>
+        <article class="format-mini format-mini-featured reveal">
+          <span class="format-mini-tag">Duo</span>
+          <h3>Format scène</h3>
+          <p>Avec Zachary Lebourg à la batterie. Lumière, vidéo, chorégraphie. Pour clubs, salles, festivals indoor/outdoor.</p>
+          <a href="/booking" class="format-mini-link">Voir le press kit →</a>
+        </article>
+        <article class="format-mini reveal">
+          <span class="format-mini-tag">Immersif 360°</span>
+          <h3>Version spatialisée</h3>
+          <p>Spatialisation sonore en direct avec Lambert Sylvain. Pour festivals arts numériques et lieux d'écoute.</p>
+          <a href="#immersif" class="format-mini-link">En savoir plus ↓</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERSION IMMERSIVE -->
+  <section class="section immersive-section" id="immersif">
+    <div class="container">
+      <div class="immersive-grid">
+        <div class="reveal">
+          <span class="eyebrow">Version spéciale</span>
+          <h2>Exomorph Immersif</h2>
+          <p>
+            Avec l'ingénieur du son <strong>Lambert Sylvain</strong>, Sacha développe une version immersive
+            du spectacle utilisant la spatialisation sonore en direct.
+          </p>
+          <p>
+            Présentée pour la première fois lors du <strong>festival Electrochic en mars 2024</strong>,
+            cette version invite le public à plonger dans une bulle sonore où chaque texture, chaque voix,
+            chaque percussion trouve son propre espace.
+          </p>
+          <p>
+            Format adapté aux festivals d'arts numériques, planétariums, lieux dédiés à l'écoute.
+          </p>
+          <a href="/booking" class="btn">Demander cette version</a>
+        </div>
+        <div class="immersive-visual reveal" aria-hidden="true">
+          <div class="circle-1"></div>
+          <div class="circle-2"></div>
+          <div class="circle-3"></div>
+          <div class="circle-center">360°</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DATES MARQUANTES (passées) ═══ -->
+  {pastDates.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Sélection</span>
+          <h2>Dates marquantes</h2>
+        </div>
+        <ul class="dates-list">
+          {pastDates.map(d => (
+            <li class="reveal">
+              <span class="date-year">{d.dateDisplay}</span>
+              <div class="date-content">
+                <span class="date-event">{d.venue}</span>
+                {d.type && <span class="date-type">{d.type}</span>}
+                {d.description && <span class="date-description">{d.description}</span>}
+              </div>
+              <div class="date-meta">
+                {d.city && <span class="date-place">{d.city}{d.country && d.country !== "France" ? ` · ${d.country}` : ""}</span>}
+                {d.externalLink && (
+                  <a href={d.externalLink} target="_blank" rel="noopener" class="date-link" aria-label={`Lien externe : ${d.venue}`}>
+                    ↗
+                  </a>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- L'ÉQUIPE -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Sur scène</span>
+        <h2>L'équipe</h2>
+      </div>
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <h3>Sacha TERRAT</h3>
+          <p class="team-role">Chant · Machines · Danse</p>
+          <p>Compositeur·rice, interprète et régisseur·se technique. Programmation Max/MSP et interfaces MIDI custom.</p>
+        </article>
+        <article class="team-card reveal">
+          <h3>Zachary Lebourg</h3>
+          <p class="team-role">Batterie · Percussions</p>
+          <p>Batteur du projet. Pad MIDI électronique pour certains morceaux.</p>
+        </article>
+        <article class="team-card reveal">
+          <h3>Lambert Sylvain</h3>
+          <p class="team-role">Ingénierie son immersive</p>
+          <p>Collaboration sur la version 360° du spectacle.</p>
+        </article>
+        <article class="team-card reveal">
+          <h3>Vojta Janyska</h3>
+          <p class="team-role">Photographie · Live</p>
+          <p>Captations photo des concerts et performances scéniques.</p>
+        </article>
+        <article class="team-card reveal">
+          <h3>Renata Sanz Fuganti</h3>
+          <p class="team-role">Photographie · Portraits</p>
+          <p>Photographies portrait et univers visuel artistique du projet.</p>
+        </article>
+        <article class="team-card reveal">
+          <h3>Linda Kurtovitch</h3>
+          <p class="team-role">Chorégraphie · Photographie</p>
+          <p>Chorégraphie du clip Oumuamua. Visuels d'identité et photographies de communication.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding: 180px 0 var(--space-md);
+    position: relative;
+  }
+
+  .page-hero.with-image {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .page-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10, 10, 20, 0.5) 0%, rgba(10, 10, 20, 0.9) 100%),
+      radial-gradient(ellipse at bottom, rgba(255, 61, 138, 0.2), transparent 60%);
+  }
+
+  .page-hero.with-image .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ═══ AGENDA ═══ */
+  .agenda-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .agenda-item {
+    display: grid;
+    grid-template-columns: 180px 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: var(--color-abyss);
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    border-left: 3px solid var(--color-coral);
+    transition: all 0.4s ease;
+  }
+
+  .agenda-item:hover {
+    border-left-color: var(--color-cyan);
+    background: var(--color-violet);
+    transform: translateX(4px);
+  }
+
+  .agenda-date {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .date-display {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--color-pearl);
+    letter-spacing: 0.1em;
+  }
+
+  .date-time {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    color: var(--color-cyan);
+    letter-spacing: 0.2em;
+  }
+
+  .agenda-info h3 {
+    margin-bottom: 0.3rem;
+    color: var(--color-pearl);
+  }
+
+  .agenda-place {
+    font-size: 0.9rem;
+    color: var(--color-mist);
+    margin-bottom: 0.4rem;
+  }
+
+  .agenda-format {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    margin-bottom: 0.3rem;
+  }
+
+  .agenda-note {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--color-veil);
+    margin: 0;
+  }
+
+  .agenda-tag {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    border: 1px solid var(--color-cyan);
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+  }
+
+  /* Fallback si pas de dates */
+  .upcoming {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--color-abyss);
+    border: 1px dashed rgba(91, 233, 255, 0.2);
+  }
+
+  .upcoming .lead {
+    margin: 0 auto;
+  }
+
+  .video-frame {
+    aspect-ratio: 16/9;
+    background: var(--color-deep);
+  }
+
+  .video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* IMMERSIVE */
+  .immersive-section {
+    background: linear-gradient(180deg, var(--color-night) 0%, var(--color-deep) 100%);
+  }
+
+  .immersive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .immersive-visual {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .immersive-visual > div {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--color-cyan);
+  }
+
+  .circle-1 { width: 100%; height: 100%; opacity: 0.2; animation: rotate 20s linear infinite; }
+  .circle-2 { width: 70%; height: 70%; opacity: 0.4; animation: rotate 15s linear infinite reverse; border-color: var(--color-coral); }
+  .circle-3 { width: 40%; height: 40%; opacity: 0.6; animation: rotate 10s linear infinite; }
+
+  .circle-center {
+    position: relative;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+    color: var(--color-pearl);
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* DATES PASSÉES — version enrichie */
+  .dates-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .dates-list li {
+    display: grid;
+    grid-template-columns: 160px 1fr auto;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(245, 240, 255, 0.05);
+    align-items: start;
+    transition: padding 0.3s ease;
+  }
+
+  .dates-list li:hover {
+    padding-left: 1rem;
+  }
+
+  .date-year {
+    font-family: var(--font-display);
+    color: var(--color-cyan);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    padding-top: 0.2rem;
+  }
+
+  .date-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .date-event {
+    color: var(--color-pearl);
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  .date-type {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    border: 1px solid var(--color-coral);
+    padding: 0.15rem 0.5rem;
+    width: fit-content;
+  }
+
+  .date-description {
+    font-size: 0.875rem;
+    color: var(--color-mist);
+    line-height: 1.5;
+  }
+
+  .date-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    padding-top: 0.2rem;
+  }
+
+  .date-place {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-veil);
+  }
+
+  .date-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--color-cyan);
+    color: var(--color-cyan);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .date-link:hover {
+    background: var(--color-cyan);
+    color: var(--color-night);
+  }
+
+  /* TEAM */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .team-card {
+    padding: 1.5rem;
+    background: var(--color-abyss);
+    border-left: 2px solid var(--color-coral);
+  }
+
+  .team-card h3 {
+    margin-bottom: 0.3rem;
+  }
+
+  .team-role {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+    margin-bottom: 1rem;
+  }
+
+  /* TROIS FORMATS (mini) */
+  .formats-section {
+    background: linear-gradient(180deg, var(--color-deep), var(--color-night));
+  }
+
+  .section-intro {
+    max-width: 65ch;
+    margin-bottom: var(--space-lg);
+    color: var(--color-mist);
+  }
+
+  .formats-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .format-mini {
+    background: var(--color-abyss);
+    padding: 1.8rem;
+    border: 1px solid rgba(245, 240, 255, 0.05);
+    border-top: 3px solid var(--color-coral);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .format-mini:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-cyan);
+    border-top-color: var(--color-cyan);
+  }
+
+  .format-mini-featured {
+    border-top-color: var(--color-cyan);
+    background: linear-gradient(180deg, var(--color-abyss), var(--color-violet));
+  }
+
+  .format-mini-tag {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+  }
+
+  .format-mini h3 {
+    font-size: 1.1rem;
+    color: var(--color-pearl);
+    margin: 0;
+  }
+
+  .format-mini p {
+    font-size: 0.9rem;
+    color: var(--color-mist);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .format-mini-link {
+    margin-top: auto;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(245, 240, 255, 0.05);
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-cyan);
+  }
+
+  .format-mini-link:hover {
+    color: var(--color-coral);
+  }
+
+  @media (max-width: 768px) {
+    .immersive-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .agenda-item {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1.2rem;
+    }
+
+    .agenda-date {
+      flex-direction: row;
+      gap: 1rem;
+      align-items: baseline;
+    }
+
+    .dates-list li {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+
+    .date-meta {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+</style>
