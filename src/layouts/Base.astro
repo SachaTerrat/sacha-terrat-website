@@ -1,6 +1,7 @@
 ---
 // Layout de base partagé par toutes les pages
 // Gère : SEO, polices, header, footer
+import '../styles/global.css';
 
 export interface Props {
   title?: string;
@@ -74,12 +75,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.sach
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- CSS global -->
-    // Layout de base partagé par toutes les pages
-import '../styles/global.css'; // <--- AJOUTE CETTE LIGNE ICI
-
-export interface Props {
-  title?: string;
   </head>
 
   <body>
